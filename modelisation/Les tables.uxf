@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>210</x>
+      <y>100</y>
+      <w>160</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>
+etudiant
+--
+id_etudiant : int
+prenom : varchar(50)
+nom : varchar(50)
+date_naiss : Date</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>720</x>
+      <y>100</y>
+      <w>160</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>
+examen
+--
+id_examen :int
+id_professeur : int
+date : Date
+heure_debut : Time
+heure_fin :Time</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>210</x>
+      <y>300</y>
+      <w>160</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>
+avoir
+--
+id_matier :int 
+id_etudant : int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>460</x>
+      <y>300</y>
+      <w>160</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>
+professeur
+--
+id_professeur : int
+prenom : varchar(50)
+nom : varchar(50)
+date_naiss : Date</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>950</x>
+      <y>100</y>
+      <w>160</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>
+administrateur
+--
+id_admin : int
+prenom : varchar(50)
+nom : varchar(50)
+date_naiss : Date</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>210</x>
+      <y>470</y>
+      <w>160</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>
+enseigner
+--
+id_professeur : int
+id_matiere : int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>720</x>
+      <y>300</y>
+      <w>160</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>
+note
+--
+id_etudiant : int
+id_professeur : int
+id_note : int
+valeur : int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>960</x>
+      <y>300</y>
+      <w>210</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>
+matiere
+--
+id_matier :int
+id_admin : int
+nom_matiere : varchar(50)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>460</x>
+      <y>100</y>
+      <w>160</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>
+compte
+--
+id_compte : int
+login : String
+motDePasse : String</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

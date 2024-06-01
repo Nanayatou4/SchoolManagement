@@ -105,7 +105,7 @@ margin-right: 3px;
         justify-content: center;
         align-items: center;
         min-height: 100vh;
-        background: url('img.jpg');
+        background: url("../images/img.jpg");
         background-size: cover;
         background-position: center;
     }
@@ -232,4 +232,18 @@ margin-right: 3px;
 
 .create-account p a:hover{
     text-decoration: underline;
+}
+
+.form-container select {
+    width: 60%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 40px;
+    font-size: 16px;
+    color: lightskyblue;
+    padding: 20px 25px;
+
 }

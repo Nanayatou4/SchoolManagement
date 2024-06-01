@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="container" >
-            <form action="/">
+            <form method="post" action="/enregistrer" >
                 <h1>Create an account</h1>
                 <div class="form-container">
                   <input type="text" name="prenom" placeholder="firstname" required>
@@ -17,22 +17,19 @@
                 <div class="form-container">
                     <input type="text" name="nom" placeholder="lastname" required>
                   </div>
-                  <div class="form-container">
+                  <div class="">
                     <input type="email" name="email" placeholder="email" required>
                     <i class='bx bxs-envelope'></i>
                   </div>
                   <div class="form-container">
-                    <select name="statut" id="">
+                    <select name="status" id="">
                         <option value="admin">Admin</option>
-                        <option value="prof">Teacher</option>
-                        <option value="etudiant">Student</option>
+                        <option value="teacher">Teacher</option>
+                        <option value="student">Student</option>
                     </select>
                   </div>
                 <button type="submit" class="button">Sign up</button>  
                 </form>
         </div>
-   
-
-    
 </body>
 </html>

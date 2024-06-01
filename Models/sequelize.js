@@ -1,51 +1,51 @@
 const { Sequelize } = require('sequelize');
-const sequelize = new Sequelize('SchoolManagement', 'root', 's2q4l27', {
+const sequelize = new Sequelize('Films', 'gorgui', 'gof781543477', {
     host: 'localhost',
     dialect: 'mysql',
 });
 
-const db = {};
-db.Sequelize = Sequelize;
-db.sequelize = sequelize;
+const tables = {};
+tables.Sequelize = Sequelize;
+tables.sequelize = sequelize;
 
-db.Administrateur = require('./AdminModel')(sequelize, Sequelize);
-db.Professeur = require('./ProfModel')(sequelize, Sequelize);
-db.Etudiant = require('./EtudiantModel')(sequelize, Sequelize);
-db.Note = require('./NoteModel')(sequelize, Sequelize);
-db.Examen = require('./ExamenModel')(sequelize, Sequelize);
-db.Compte = require('./CompteModel')(sequelize, Sequelize);
-db.Filiere = require('./filiereModel')(sequelize, Sequelize);
-db.Matiere = require('./MatiereModel')(sequelize, Sequelize);
+tables.Administrateur = require('./AdminModel')(sequelize, Sequelize);
+tables.Professeur = require('./ProfModel')(sequelize, Sequelize);
+tables.Etudiant = require('./EtudiantModel')(sequelize, Sequelize);
+tables.Note = require('./NoteModel')(sequelize, Sequelize);
+tables.Examen = require('./ExamenModel')(sequelize, Sequelize);
+tables.Compte = require('./CompteModel')(sequelize, Sequelize);
+tables.Filiere = require('./filiereModel')(sequelize, Sequelize);
+tables.Matiere = require('./MatiereModel')(sequelize, Sequelize);
 
-db.Administrateur.hasOne(db.Compte);
-db.Compte.belongsTo(db.Administrateur);
+tables.Administrateur.hasOne(tables.Compte);
+tables.Compte.belongsTo(tables.Administrateur);
 
-db.Professeur.hasOne(db.Compte);
-db.Compte.belongsTo(db.Professeur);
+tables.Professeur.hasOne(tables.Compte);
+tables.Compte.belongsTo(tables.Professeur);
 
-db.Etudiant.hasOne(db.Compte);
-db.Compte.belongsTo(db.Etudiant);
+tables.Etudiant.hasOne(tables.Compte);
+tables.Compte.belongsTo(tables.Etudiant);
 
-db.Etudiant.belongsTo(db.Filiere);
-db.Filiere.hasMany(db.Etudiant);
+tables.Etudiant.belongsTo(tables.Filiere);
+tables.Filiere.hasMany(tables.Etudiant);
 
-db.Professeur.hasMany(db.Examen);
-db.Examen.belongsTo(db.Professeur);
+tables.Professeur.hasMany(tables.Examen);
+tables.Examen.belongsTo(tables.Professeur);
 
-db.Professeur.hasMany(db.Matiere);
-db.Matiere.belongsTo(db.Professeur);
+tables.Professeur.hasMany(tables.Matiere);
+tables.Matiere.belongsTo(tables.Professeur);
 
-db.Etudiant.hasMany(db.Note);
-db.Note.belongsTo(db.Etudiant);
+tables.Etudiant.hasMany(tables.Note);
+tables.Note.belongsTo(tables.Etudiant);
 
-db.Examen.hasMany(db.Note);
-db.Note.belongsTo(db.Examen);
+tables.Examen.hasMany(tables.Note);
+tables.Note.belongsTo(tables.Examen);
 
-db.Etudiant.hasMany(db.Matiere);
+tables.Etudiant.hasMany(tables.Matiere);
 
-db.Examen.belongsTo(db.Matiere);
-db.Matiere.hasMany(db.Examen);
+tables.Examen.belongsTo(tables.Matiere);
+tables.Matiere.hasMany(tables.Examen);
 
-module.exports = db;
+module.exports = tables;
 
 

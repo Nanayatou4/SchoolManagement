@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGN UP</title>
+    <link rel="stylesheet" href="../publics/css/style.css">
+    <link rel="stylesheet" href="../publics/css/styleBody.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+    <link rel="stylesheet" href="../publics/css/bootstrap-reboot.css">
+    <link rel="stylesheet" href="../publics/css/bootstrap.css">
+</head>
+<body>
+<main class="form-container">
+        <table border style="width: 100%;">
+            <tr>
+                <th>Day</th>
+                <th>Hour start</th>
+                <th>Hour end</th>
+                <th>Action</th>
+            </tr>
+
+            <% data.forEach(function(exams) { %>
+
+            <tr>
+                <td><%= exams.date %></td>
+                <td><%= exams.heure_debut %></td>
+                <td><%= exams.heure_fin %></td>
+                <td>
+                    <a href="/exam_page/<%=exams.id%>">Modifier</a>&nbsp;&nbsp;
+                    <a href="">Annuler</a>
+                </td>
+            </tr>
+            <% }); %>
+
+        </table>
+    <div class="text-center mt-5">
+        <a href="/add-exam" style="margin-bottom: 4px;">Programmer un exam</a>
+    </div>
+</main>
+</body>
+</html>

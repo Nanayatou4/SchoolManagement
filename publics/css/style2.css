@@ -1,6 +1,5 @@
 body{
     background-image: url("../images/img.jpg");
-    
 }
 
 h1{
@@ -8,7 +7,6 @@ h1{
  color: white;
  font-family: 'Times New Roman', Times, serif;
  font-size: 100px;
- 
 }
 
 .lien table{
@@ -30,6 +28,32 @@ h1{
 .back {
     background-color: cyan;
 }
+
+
+
+main div{
+    display:flex;
+}
+main div #art2{
+    flex:1;
+}
+main{
+    border:0 solid ;
+    padding:10px 30px 25px 30px;
+}
+
+
+@media (max-width: 992px) {
+    body {
+        margin : 10px;
+    }
+
+    main div #art2 {
+        display:none;
+    }
+
+}
+
 
 
 

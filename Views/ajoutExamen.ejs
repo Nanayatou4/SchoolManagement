@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGN UP</title>
+    <link rel="stylesheet" href="../publics/css/style.css">
+    <link rel="stylesheet" href="../publics/css/styleBody.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+</head>
+<body>
+<div class="container" >
+    <form method="post" action="/add-exam" >
+        <h1>Scedule an exam </h1>
+        <div class="form-container">
+            <label for="date">Date</label>
+            <input type="date" name="date" placeholder="the date" id="date"  required>
+        </div>
+        <div class="form-container">
+            <label for="heure_debut">start time</label>
+            <input type="time" name="heure_debut" placeholder="hour for the start" id="heure_debut"  required>
+        </div>
+        <div class="form-container">
+            <label for="heure_fin">end time</label>
+            <input type="time" name="heure_fin" placeholder="hour for the end" id="heure_fin" required>
+        </div>
+        <button type="submit" class="button">Program</button>
+    </form>
+</div>
+</body>
+</html>

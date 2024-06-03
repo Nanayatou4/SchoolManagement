@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGN-IN</title>
+    <link rel="stylesheet" href="../publics/css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+</head>
+<body>
+    <div class="container" >
+            <form action="/login" method="post">
+                <h1>Login</h1>
+                <div class="form-container">
+                  <input type="text" name="username" placeholder="Username" required>
+                  <i class='bx bxs-user'></i>
+                </div>
+                <div class="form-container">
+                    <input type="password" name="password" placeholder="password" required> 
+                    <i class='bx bxs-lock-alt'></i>
+                  </div>
+                  <div class="form-container">
+                    <select name="proprietaire" id="">
+                        <option value="admin">Admin</option>
+                        <option value="teacher">Teacher</option>
+                        <option value="student">Student</option>
+                    </select>
+                </div>
+                  <div class="forgot-password">
+                    <label for=""><input type="checkbox">Remember me</label>
+                  <a href="/password">Forgot password</a>
+                  </div>
+                  <button type="submit" class="button">Login</button>
+                   
+                  <div class="create-account">
+                    <p>Don't have an account? <a href="/register">Register</a></p>
+                  </div>
+                </form>
+        </div>
+   
+
+    
+</body>
+</html>

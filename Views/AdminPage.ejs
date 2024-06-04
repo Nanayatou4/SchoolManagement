@@ -2,40 +2,49 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AdminPage</title>
+    <title>Title</title>
+    <link rel="stylesheet" href="../publics/css/bootstrap-utilities.css">
+    <link rel="stylesheet" href="../publics/css/bootstrap-reboot.css">
+    <link rel="stylesheet" href="../publics/css/bootstrap.css">
+    <link rel="stylesheet" href="../publics/css/style.css">
     <link rel="stylesheet" href="../publics/css/style2.css">
 </head>
 <body>
-    <h1>Welcome to Admin Page</h1>
-    <div class="lien">
-        <table border="1">
-            <tr>
-                <td><button><a href="#">Student Management</a></button</td>
-            </tr>
-            <tr>
-                <td><button><a href="#">Teacher Management</a></button></td>
-            </tr>
-            <tr>
-                <td><button><a href="#">Subject Management</a></button></td>
-            </tr>
-            <tr>
-                <td><button><a href="#">Sector Management</a></button></td>
-            </tr>
-            <div class="signout">
-                <tr>
-                    <td><button style="background-color: red; width: 120px; height: 50px;"><a href="/">Sign Out</a></button></td>
-                </tr>
-            </div>
-          
-        </table>
-    
-    
-    
-        
-    
-    
-
+<header class="">
+    <h1 class="mb-5">Welcome to Administrator page</h1>
+</header>
+<main>
+    <div class="container option ">
+        <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#" role="button" aria-controls="offcanvasExample">
+            OutLine
+        </a>
+        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+            See options
+        </button>
     </div>
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <h4 class="offcanvas-title" id="offcanvasExampleLabel">Administration menu</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="text-center mt-2">
+            <h5><strong>This is options for the Administrator</strong></h5>
+        </div>
+        <div class="offcanvas-body">
+
+            <div class="dropdown mt-3">
+                <ul>
+                    <li><a class="dropdown-item" href="#">Student management</a></li>
+                    <li><a class="dropdown-item" href="#">Subject management</a></li>
+                    <li><a class="dropdown-item" href="#">Teacher management</a></li>
+                    <li><a class="dropdown-item" href="#">Sector management</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</main>
+<script src="../publics/css/bootstrap.js"></script>
 </body>
 </html>

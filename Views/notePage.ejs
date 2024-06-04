@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGN UP</title>
+    <link rel="stylesheet" href="../publics/css/style.css">
+    <link rel="stylesheet" href="../publics/css/style2.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+    <link rel="stylesheet" href="../publics/css/bootstrap-reboot.css">
+    <link rel="stylesheet" href="../publics/css/bootstrap.css">
+</head>
+<body>
+<main class="form-container">
+    <table border style="width: 100%;">
+        <tr>
+            <th>FirstName's student</th>
+            <th>LastName's student</th>
+            <th>Note value</th>
+            <th>Action</th>
+        </tr>
+
+        <% data.forEach(function(rows) { %>
+
+            <tr>
+                <td><%= rows.nom %></td>
+                <td><%= rows.prenom %></td>
+                <td><%= rows.valeur %></td>
+                <td>
+                    <a href="/edit-note-page/<%=rows.id%>">Edit</a>&nbsp;&nbsp;
+                    <a href="/delete-note-page/<%=rows.id%>">Delete</a>
+                </td>
+            </tr>
+        <% }); %>
+
+    </table>
+
+    <!--<div class="text-center mt-5">
+        <a href="/add-exam" style="margin-bottom: 4px;">Programmer un exam</a>
+    </div>-->
+</main>
+</body>
+</html>

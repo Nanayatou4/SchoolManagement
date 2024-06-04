@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGN UP</title>
+    <link rel="stylesheet" href="../publics/css/style.css">
+    <link rel="stylesheet" href="../publics/css/styleBody.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+</head>
+<body>
+<div class="container" >
+    <form method="post" action="/edit-note/<%=row.id%>?_method=PUT" >
+        <h1>Edit a note </h1>
+        <div class="form-container">
+            <input type="text" name="firstname" placeholder="the firstname's student" value="<%=row.nom%>" required>
+        </div>
+        <div class="form-container">
+
+            <input type="text" name="lastname" placeholder="the lastname's student" value="<%=row.prenom%>" required>
+        </div>
+        <div class="form-container">
+
+            <input type="number" name="value" placeholder="value of the note" value="<%=row.valeur%>"  required>
+        </div>
+        <button type="submit" class="button">Edit</button>
+    </form>
+</div>
+</body>
+</html>

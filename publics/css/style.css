@@ -5,17 +5,9 @@
     font-family: "Poppins", sans-serif;
     box-sizing: border-box;
 }
-
 body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: url('../images/img.jpg');
-    background-size: cover;
-    background-position: center;
+    color: wheat;
 }
-
 .container{
     width: 420px;
     background: transparent;
@@ -105,7 +97,7 @@ margin-right: 3px;
         justify-content: center;
         align-items: center;
         min-height: 100vh;
-        background: url('img.jpg');
+        background: url("../images/img.jpg");
         background-size: cover;
         background-position: center;
     }
@@ -232,4 +224,108 @@ margin-right: 3px;
 
 .create-account p a:hover{
     text-decoration: underline;
+}
+
+.form-container select {
+    width: 60%;
+    height: 119%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 40px;
+    font-size: 16px;
+    color: black;
+    padding: 20px 25px;
+
+}
+
+.exams {
+    width: 100%;
+}
+table td,table th,main a{
+    padding: 6px;
+    font-size: 25px;
+    font-weight: bold;
+    color: wheat;
+}
+main table {
+    border: 1px double;
+}
+main table td,main table th {
+    border: 3px double wheat;
+}
+table td a,.text-center a{
+    border: 1px solid wheat;
+    border-radius: 12px;
+    text-decoration: none;
+}
+table td a {
+    padding: 3px;
+}
+.text-center a {
+    padding: 12px;
+}
+.option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: space-around;
+}
+
+.dropdown li a {
+    font-size: 20px;
+    padding: 9px;
+    border: 2px solid wheat;
+    text-decoration: none;
+    margin: 12px;
+    border-radius: 14px;
+}
+.dropdown li {
+    list-style: none;
+}
+.offcanvas{
+    background-color: transparent;
+    border: none;
+    color: wheat;
+}
+
+
+/*animation css*/
+@keyframes slideinLeft {
+    from{
+        transform: translateX(-400px);
+    }
+    to{
+        transform: translateX(0);
+    }
+}
+
+.option {
+    animation-name: slideinLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: none;
+}
+input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number]{
+    -moz-appearance: textfield;
+}
+
+.return {
+    background-color: wheat;
+    margin-left: 35%;
+    padding: 4px;
+    width: 30%;
+    border-radius: 20px;
+    text-align: center;
+}
+.return a{
+    text-decoration: none;
 }

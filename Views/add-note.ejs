@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGN UP</title>
+    <link rel="stylesheet" href="../publics/css/style.css">
+    <link rel="stylesheet" href="../publics/css/styleBody.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+</head>
+<body>
+<div class="container" >
+    <form method="post" action="/add-note/<%=row.id%>" >
+        <h1>Add a note </h1>
+        <div class="form-container">
+            <label for="firstname">the date</label>
+            <input type="text" name="date" placeholder="the name's student" id="firstname" required>
+        </div>
+        <div class="form-container">
+            <label for="lastname">hour for the start</label>
+            <input type="time" name="heure_debut" placeholder="hour for the start" id="lastname" required>
+        </div>
+        <div class="form-container">
+            <label for="value">hour for the end</label>
+            <input type="time" name="heure_fin" placeholder="hour for the end" id="value" required>
+        </div>
+        <button type="submit" class="button">Save</button>
+    </form>
+</div>
+</body>
+</html>

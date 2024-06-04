@@ -10,6 +10,7 @@
     "nodemon": "^3.1.0"
   },
   "scripts": {
+    "dev" : "nodemon server.ejs",
     "start": "node server.js"
   },
   "name": "schoolmanagement",

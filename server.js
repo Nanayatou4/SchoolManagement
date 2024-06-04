@@ -4,39 +4,24 @@ const app = express();
 const bodyParser = require('body-parser');
 const db = require('./Models/sequelize');
 const PORT = 2700;
-const UsersRoute = require('./Routers/UsersRoute');
+const route = require("./Routers/Routes");
 
+module.exports=express;
 app.set('view engine', 'ejs');
 app.set("views", "./Views");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-
-
-app.get('/', (req,res)=>{
-    res.render('login');
-});
-
-app.get('/register', (req,res)=>{
-    res.render('register');
-});
-
-app.get('/password', (req,res)=>{
-    res.render('forgotPassword');
-})
-
-
-
-app.use('/',UsersRoute);
-
 app.use("/publics", express.static("publics"));
+
+app.use('/',route);
+
 
 db.sequelize.authenticate().then(()=>{
     console.log('Successfully');
 }).catch((err)=>{
     console.log(err);
 })
-
 
 db.sequelize.sync({alter: true}).then(()=>{
     console.log("Database synced");

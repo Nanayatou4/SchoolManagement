@@ -6,5 +6,6 @@ body{
     background: url('../images/img.jpg');
     background-size: cover;
     background-position: center;
+    padding: 0;
 }
 

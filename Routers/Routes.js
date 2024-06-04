@@ -35,5 +35,8 @@ Route.get('/note-page',note_controller.note_page)
 Route.get('/delete-note-page/:id',note_controller.confirm_delete_note)
 Route.get('/edit-note-page/:id',note_controller.edit_note_page)
 Route.get('/add-note-page/:id',note_controller.add_note_page)
+Route.get('/prof-page',prof_controller.prof_page)
+Route.get('/students-notes',prof_controller.students_notes)
+Route.get('/confirmation-delete',)
 
 module.exports=Route;

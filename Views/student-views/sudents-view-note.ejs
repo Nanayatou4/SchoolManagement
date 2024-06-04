@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SIGN UP</title>
-    <link rel="stylesheet" href="../publics/css/style.css">
-    <link rel="stylesheet" href="../publics/css/style2.css">
+    <link rel="stylesheet" href="../../publics/css/style.css">
+    <link rel="stylesheet" href="../../publics/css/style2.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
-    <link rel="stylesheet" href="../publics/css/bootstrap-reboot.css">
-    <link rel="stylesheet" href="../publics/css/bootstrap.css">
+    <link rel="stylesheet" href="../../publics/css/bootstrap-reboot.css">
+    <link rel="stylesheet" href="../../publics/css/bootstrap.css">
 </head>
 <body>
 <main class="form-container">
@@ -20,15 +20,15 @@
             <th>Action</th>
         </tr>
 
-        <% data.forEach(function(exams) { %>
+        <% datas.forEach(function(data) { %>
 
             <tr>
-                <td><%= exams.date %></td>
-                <td><%= exams.heure_debut %></td>
-                <td><%= exams.heure_fin %></td>
+                <td><%= data.nom %></td>
+                <td><%= data.prenom %></td>
+                <td><%= data.valeur %></td>
                 <td>
-                    <a href="/exam_page/<%=exams.id%>">Modifier</a>&nbsp;&nbsp;
-                    <a href="">Annuler</a>
+                    <a href="/exam_page/<%=data.id%>">Edit</a>&nbsp;&nbsp;
+                    <a href="/">Delete</a>
                 </td>
             </tr>
         <% }); %>

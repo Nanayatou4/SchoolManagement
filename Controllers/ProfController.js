@@ -1,17 +1,23 @@
-const profController=[
-    {
-        exam_add : function (req, res) {
+db = require('../Models/sequelize');
+module.exports = {
 
-        }
-    },
-    {
-        add_note : function (req, res) {
+    exam_add: function (req, res) {
 
-        }
-    },
-    {
-        edit_note: function (req, res) {
+    }
+    ,
 
-        }
-    },
-]
+    add_note: function (req, res) {
+
+    }
+    ,
+    edit_note: function (req, res) {
+        const studentID=req.params.id;
+
+    }
+    ,
+    delete_note: function (req, res) {
+        const studentID=req.params.id;
+        db.Note.destroy({where:{id : studentID}});
+        res.redirect('/note-page');
+    }
+}

@@ -291,3 +291,41 @@ table td a {
 }
 
 
+/*animation css*/
+@keyframes slideinLeft {
+    from{
+        transform: translateX(-400px);
+    }
+    to{
+        transform: translateX(0);
+    }
+}
+
+.option {
+    animation-name: slideinLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: none;
+}
+input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number]{
+    -moz-appearance: textfield;
+}
+
+.return {
+    background-color: wheat;
+    margin-left: 35%;
+    padding: 4px;
+    width: 30%;
+    border-radius: 20px;
+    text-align: center;
+}
+.return a{
+    text-decoration: none;
+}

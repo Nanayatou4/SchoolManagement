@@ -2,41 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIGN UP</title>
-    <link rel="stylesheet" href="../publics/css/style.css">
-    <link rel="stylesheet" href="../publics/css/styleBody.css">
-    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+    <title>Title</title>
+    <link rel="stylesheet" href="../publics/css/bootstrap-utilities.css">
     <link rel="stylesheet" href="../publics/css/bootstrap-reboot.css">
     <link rel="stylesheet" href="../publics/css/bootstrap.css">
+    <link rel="stylesheet" href="../publics/css/style.css">
+    <link rel="stylesheet" href="../publics/css/style2.css">
 </head>
 <body>
-<main class="form-container">
-        <table border style="width: 100%;">
-            <tr>
-                <th>Day</th>
-                <th>Hour start</th>
-                <th>Hour end</th>
-                <th>Action</th>
-            </tr>
+<header class="">
+    <h1 class="mb-5">Welcome to Teacher page</h1>
+</header>
+<main>
+    <div class="container option ">
+        <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#" role="button" aria-controls="offcanvasExample">
+            OutLine
+        </a>
+        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+            See options
+        </button>
+    </div>
 
-            <% data.forEach(function(exams) { %>
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <h4 class="offcanvas-title" id="offcanvasExampleLabel">Teacher menu</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="text-center mt-2">
+            <h5><strong>This is options for the Teacher</strong></h5>
+        </div>
+        <div class="offcanvas-body">
 
-            <tr>
-                <td><%= exams.date %></td>
-                <td><%= exams.heure_debut %></td>
-                <td><%= exams.heure_fin %></td>
-                <td>
-                    <a href="/exam_page/<%=exams.id%>">Modifier</a>&nbsp;&nbsp;
-                    <a href="">Annuler</a>
-                </td>
-            </tr>
-            <% }); %>
+            <div class="dropdown mt-3">
+                <ul>
+                    <li><a class="dropdown-item" href="#">Exam management</a></li>
+                    <li><a class="dropdown-item" href="#">View Note</a></li>
+                    <li><a class="dropdown-item" href="#">View Student</a></li>
+                </ul>
 
-        </table>
-    <div class="text-center mt-5">
-        <a href="/add-exam" style="margin-bottom: 4px;">Programmer un exam</a>
+            </div>
+        </div>
     </div>
 </main>
+<script src="../publics/css/bootstrap.js"></script>
 </body>
 </html>

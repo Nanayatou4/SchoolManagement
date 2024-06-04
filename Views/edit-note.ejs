@@ -5,38 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SIGN UP</title>
     <link rel="stylesheet" href="../publics/css/style.css">
-    <link rel="stylesheet" href="../publics/css/style2.css">
+    <link rel="stylesheet" href="../publics/css/styleBody.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
-    <link rel="stylesheet" href="../publics/css/bootstrap-reboot.css">
-    <link rel="stylesheet" href="../publics/css/bootstrap.css">
 </head>
 <body>
-<main class="form-container">
-    <table border style="width: 100%;">
-        <tr>
-            <th>Day</th>
-            <th>Hour start</th>
-            <th>Hour end</th>
-            <th>Action</th>
-        </tr>
+<div class="container" >
+    <form method="post" action="/edit-note/<%=row.id%>?_method=PUT" >
+        <h1>Edit a note </h1>
+        <div class="form-container">
+            <input type="text" name="firstname" placeholder="the firstname's student" value="<%=row.nom%>" required>
+        </div>
+        <div class="form-container">
 
-        <% data.forEach(function(exams) { %>
+            <input type="text" name="lastname" placeholder="the lastname's student" value="<%=row.prenom%>" required>
+        </div>
+        <div class="form-container">
 
-            <tr>
-                <td><%= exams.date %></td>
-                <td><%= exams.heure_debut %></td>
-                <td><%= exams.heure_fin %></td>
-                <td>
-                    <a href="/exam_page/<%=exams.id%>">Modifier</a>&nbsp;&nbsp;
-                    <a href="">Annuler</a>
-                </td>
-            </tr>
-        <% }); %>
-
-    </table>
-    <div class="text-center mt-5">
-        <a href="/add-exam" style="margin-bottom: 4px;">Programmer un exam</a>
-    </div>
-</main>
+            <input type="number" name="value" placeholder="value of the note" value="<%=row.valeur%>"  required>
+        </div>
+        <button type="submit" class="button">Edit</button>
+    </form>
+</div>
 </body>
 </html>

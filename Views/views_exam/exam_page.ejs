@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SIGN UP</title>
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+        <link rel="stylesheet" href="../../publics/css/bootstrap-reboot.css">
+        <link rel="stylesheet" href="../../publics/css/bootstrap.css">
     <link rel="stylesheet" href="../../publics/css/style.css">
     <link rel="stylesheet" href="../../publics/css/style2.css">
-    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
-    <link rel="stylesheet" href="../../publics/css/bootstrap-reboot.css">
-    <link rel="stylesheet" href="../../publics/css/bootstrap.css">
+
 </head>
 <body>
-<main class="form-container">
+<main class="form-container centrer">
+<H1 class="mt-5 mb-5">Exam management</H1>
     <table border style="width: 100%;">
         <tr>
             <th>Day</th>
@@ -20,23 +22,26 @@
             <th>Action</th>
         </tr>
 
-        <% data.forEach(function(exams) { %>
+        <% exams.forEach(function(exams) { %>
 
             <tr>
                 <td><%= exams.date %></td>
-                <td><%= exams.heure_debut %></td>
-                <td><%= exams.heure_fin %></td>
+                <td><%= exams.heureDebut %></td>
+                <td><%= exams.heureFin %></td>
                 <td>
-                    <a href="/exam_page/<%=exams.id%>">Modifier</a>&nbsp;&nbsp;
-                    <a href="">Annuler</a>
+                    <a href="/edit_exam_page/<%=exams.id%>">Edit</a>&nbsp;&nbsp;
+                    <a href="/delete-exam/<%=exams.id%>">Cancel</a>
                 </td>
             </tr>
         <% }); %>
 
     </table>
     <div class="text-center mt-5">
-        <a href="/add-exam" style="margin-bottom: 4px;">Programmer un exam</a>
+        <a href="/add-exam" style="margin-bottom: 4px;">Program an exam</a>
     </div>
+    <div class="text-center mt-2">
+            <a href="/profPage" style="margin-bottom: 4px;">Cancel</a>
+        </div>
 </main>
 </body>
 </html>

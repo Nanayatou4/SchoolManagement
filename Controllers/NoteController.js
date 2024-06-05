@@ -15,6 +15,10 @@ module.exports ={
         res.render('./confirmPage.ejs',{id});
     },
     note_page : function (req, res) {
-        res.render('./notePage.ejs');
+    db.Note.findAll({include:db.Etudiant}).then(Notes=>{
+
+        res.render('./student_views/students_view_note.ejs',{Notes});
+    })
+
     }
 }

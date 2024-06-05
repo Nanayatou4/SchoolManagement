@@ -1,6 +1,6 @@
 const controllers_student = {
     register: function (req, res) {
-        res.render("./login_views/register.ejs");
+        res.render("./login_views/register.ejs",{message:"Create an account"});
 
     },
     consult_subject: function (req, res) {

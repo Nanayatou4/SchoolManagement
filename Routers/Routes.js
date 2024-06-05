@@ -12,7 +12,7 @@ Route.get('/',controllers_main.login);
 
 //route for compte
 Route.get('/register', controllers_student.register);
-Route.post('/login', controllers_Compte.login);
+Route.post('/login',controllers_main.connect)
 Route.post('/enregistrer',controllers_main.save)
 Route.get('/',controllers_main.login);
 Route.get('/password',controllers_main.pwd);

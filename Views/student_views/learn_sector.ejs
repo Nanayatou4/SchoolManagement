@@ -11,38 +11,39 @@
 </head>
 <body>
 
-    <div class="container" >
-            <form action="/create_student" method="post">
-            if(!filiers){
-                <div classe="alerte alerte-danger" rôle="alerte">
-                 Not dispo of sector !!</div>
-            }else{
-            <h1>Learn your sector</h1>
-                            <div class="form-container">
-                              <!-- <input type="text" placeholder="Your sector" name="sector" required>
+<div class="container">
 
-                            </div> -->
-                            <select name="status" id="">
-
-                            <% filiers.forEach(function(filiere) { %>
-
-                                        <option value="<%=filiere.Code%>"><%=filiere.Code%></option>
-                                    <% }); %>
-
-
-                                               </select>
-
-                              <button type="submit" class="button">Learn</button>
-
-                              <div class="return">
-                                                            <a href="/" >Cancel</a>
-                                                        </div>
-
-            }
-
-                </form>
+    <% if(!filiers){ %>
+        <div classe="alerte alerte-danger" rôle="alerte">
+            Not dispo of sector !!
         </div>
+    <% }else{ %>
+        <form action="/create_student" method="post">
+            <h1>Learn your sector</h1>
+            <div class="form-container">
+                <!-- <input type="text" placeholder="Your sector" name="sector" required>
 
+              </div> -->
+                <select name="status" id="">
+
+                    <% filiers.forEach(function(filiere) { %>
+
+                        <option value="<%= filiere.Code %>"><%= filiere.Code %></option>
+                    <% }); %>
+
+                </select>
+
+                <button type="submit" class="button">Learn</button>
+
+                <div class="return">
+                    <a href="/">Cancel</a>
+                </div>
+            </div>
+        </form>
+
+    <% } %>
+
+</div>
 
 
 </body>

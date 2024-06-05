@@ -13,39 +13,60 @@ const mainController = {
         if (req.body.password === req.body.confpassword) {
             if (data.status === 'teacher') {
 
-                db.Professeur.create(data);
-                db.Professeur.findOne({where: {email: req.body.email}}).then(user => {
-                    log = {
-                        login: req.body.email,
-                        motdepasse: req.body.password,
-                        ProfesseurId: user.id
-                    }
-                    db.Compte.create(log);
-                    res.redirect('/');
-                }).catch(error => {
-                    res.send("error");
+                db.Professeur.create(data).then(() => {
+
+
+                    db.Professeur.findOne({where: {email: data.email}}).then(user => {
+                        log = {
+                            login: req.body.email,
+                            motdepasse: req.body.password,
+                            ProfesseurId: user.id
+                        }
+                        console.log("Prof enregistrer avec succee ");
+                        db.Compte.create(log).then(() => {
+                            console.log("Compte enregistrer avec succee ");
+                            res.redirect('/');
+                        }).catch(error => {
+                            res.render('./login_views/register.ejs', {message: 'Acount already exist !'});
+                        });
+
+                    }).catch(error => {
+                        res.render('./login_views/register.ejs', {message: 'Error ! Try again'});
+                    });
+
                 });
 
 
             } else if (data.status === 'administrator') {
-                db.Administrateur.create(data);
-                db.Administrateur.findOne({where: {email: req.body.email}}).then(user => {
-                    log = {
-                        login: req.body.email,
-                        motdepasse: req.body.password,
-                        AdministrateurIp: user.id
-                    }
-                    db.Compte.create(log);
-                     res.redirect('/');
-                }).catch(error => {
-                    res.send("error");
+                db.Administrateur.create(data).then(() => {
+
+
+                    db.Administrateur.findOne({where: {email: data.email}}).then(user => {
+                        log = {
+                            login: req.body.email,
+                            motdepasse: req.body.password,
+                            AdministrateurId: user.id
+                        }
+                        console.log("admin enregistrer avec succee ");
+                        db.Compte.create(log).then(() => {
+                            console.log("Compte enregistrer avec succee ");
+                            res.redirect('/');
+                        }).catch(error => {
+                            res.render('./login_views/register.ejs', {message: 'Acount already exist !'});
+                        });
+
+                    }).catch(error => {
+                        res.render('./login_views/register.ejs', {message: 'Error ! Try again'});
+                    });
+
+
                 });
 
 
             } else if (data.status === 'student') {
 
 
-                db.Etudiant.findOne({where: {email: req.body.email}}).then(user => {
+                db.Etudiant.findOne({where: {email: data.email}}).then(user => {
 
                     console.log(user.id);
                     log = {
@@ -53,12 +74,12 @@ const mainController = {
                         motdepasse: req.body.password,
                         EtudiantId: user.id
                     }
-                    req.session.infoLogin=log;
-                    req.session.infoUser=data;
+                    req.session.infoLogin = log;
+                    req.session.infoUser = data;
 
-                    db.Filiere.findAll().then(filiers=>{
+                    db.Filiere.findAll().then(filiers => {
 
-                        res.render('./student_views/learn_sector.ejs',{filiers});
+                        res.render('./student_views/learn_sector.ejs', {filiers});
 
                     })
 
@@ -77,7 +98,31 @@ const mainController = {
         res.render('./login_views/login.ejs');
     },
     connect: (req, res) => {
+        let data = {
+            email: req.body.email,
+            password: req.body.password
 
+        }
+        db.Compte.findByPk(data.email).then(compte => {
+            if (compte) {
+                if (data.password !== compte.motdepasse) {
+
+                    res.status(401).send('Mot de passe incorrect ');
+
+                } else {
+                    if (compte.AdministrateurId !== null) {
+                        res.redirect('/adminPage');
+                    } else if (compte.ProfesseurId != null) {
+                        res.redirect('/profPage');
+                    } else if (compte.EtudiantId !== null) {
+                        res.redirect('/studentPage');
+                    }
+
+                }
+            } else {
+                res.status(400).send('Compte introuvable !');
+            }
+        })
 
     },
     pwd: (req, res) => {
@@ -96,24 +141,24 @@ const mainController = {
         res.render('./student_views/learn_sector.ejs');
     },
     create_student: (req, res) => {
-        const filiere=req.body.sector;
+        const filiere = req.body.sector;
 
         res.json(req.session.infoLogin);
 
-        /*db.Etudiant.create(req.session.infoUser).then(( ) => {
+        db.Etudiant.create(req.session.infoUser).then(() => {
 
-            req.session.infoLogin.FiliereId=req.body.sector;
+            req.session.infoLogin.FiliereId = req.body.sector;
             res.json(req.session.infoLogin);
-            *//*db.Compte.create(req.session.infoLogin).then(( ) => {
+            db.Compte.create(req.session.infoLogin).then(() => {
+                res.redirect('/');
+            }).catch(error => {
+                res.send("error");
+            });
+        }).catch(error => {
+            res.send("error");
+        });
 
-                     }).catch(error => {
-                                        res.send("error");
-                                    });
-         }).catch(error => {
-                            res.send("error");
-                        });
-                        res.redirect('/');*//*
-        })*/
+
     }
 };
 

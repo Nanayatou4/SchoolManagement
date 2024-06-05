@@ -29,7 +29,7 @@ module.exports= examenController= {
     ,
     exam_Page(req, res) {
         db.Examen.findAll().then(exams =>{
-            res.render("./exam.ejs", {exams});
+            res.render("./views_exam/exam_page.ejs", {exams});
         });
     },
 

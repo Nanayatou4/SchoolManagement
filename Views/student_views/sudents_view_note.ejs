@@ -20,14 +20,14 @@
             <th>Action</th>
         </tr>
 
-        <% datas.forEach(function(data) { %>
+        <% Notes.forEach(function(note) { %>
 
             <tr>
-                <td><%= data.nom %></td>
-                <td><%= data.prenom %></td>
-                <td><%= data.valeur %></td>
+                <td><%= note.nom %></td>
+                <td><%= note.prenom %></td>
+                <td><%= note.valeur %></td>
                 <td>
-                    <a href="/exam_page/<%=data.id%>">Edit</a>&nbsp;&nbsp;
+                    <a href="/exam_page/<%=note.id%>">Edit</a>&nbsp;&nbsp;
                     <a href="/">Delete</a>
                 </td>
             </tr>

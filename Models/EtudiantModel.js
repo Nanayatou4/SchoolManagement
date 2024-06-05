@@ -21,7 +21,11 @@ module.exports = (sequelize, DataTypes)=>
         status:{
             type: DataTypes.STRING,
             allowNull: false,
-        }
+        },
+        FiliereId:{
+                             type: DataTypes.STRING,
+                             allowNull: false,
+                         }
     },
     {
         freezeTableName: true,

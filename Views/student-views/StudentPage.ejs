@@ -2,29 +2,47 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AdminPage</title>
+    <title>Title</title>
+    <link rel="stylesheet" href="../../publics/css/bootstrap-utilities.css">
+    <link rel="stylesheet" href="../../publics/css/bootstrap-reboot.css">
+    <link rel="stylesheet" href="../../publics/css/bootstrap.css">
+    <link rel="stylesheet" href="../../publics/css/style.css">
     <link rel="stylesheet" href="../../publics/css/style2.css">
 </head>
 <body>
-    <h1>Welcome to Student Page</h1>
-    <div class="lien">
-        <table border="1">
-            <tr>
-                <td><button><a href="#">View Courses</a></button></td>
-            </tr>
-            <tr>
-                <td><button><a href="#">View Notes</a></button></td>
-            </tr>
-            <tr>
-                <td><button><a href="#">View Exams</a></button></td>
-            </tr>
-            <div class="signout">
-                <tr>
-                    <td><button style="background-color: red; width: 120px; height: 50px;"><a href="">Sign Out</a></button></td>
-                </tr>
-            </div>
-        </table>
+<header class="">
+    <h1 class="mb-5">Welcome to Teacher page</h1>
+</header>
+<main>
+    <div class="container option ">
+        <a class="btn btn-primary" data-bs-toggle="offcanvas" href="/" role="button" aria-controls="offcanvasExample">
+            OutLine
+        </a>
+        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+            See options
+        </button>
     </div>
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <h4 class="offcanvas-title" id="offcanvasExampleLabel">Teacher menu</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="text-center mt-2">
+            <h5><strong>This is options for the Teacher</strong></h5>
+        </div>
+        <div class="offcanvas-body">
+
+            <div class="dropdown mt-3">
+                <ul>
+                    <li><a class="dropdown-item" href="/exam">Vieuw Cours</a></li>
+                    <li><a class="dropdown-item" href="/note-page">View Note</a></li>
+                    <li><a class="dropdown-item" href="/students-notes">View Exams</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</main>
+<script src="../../publics/css/bootstrap.js"></script>
 </body>
 </html>

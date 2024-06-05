@@ -325,6 +325,7 @@ input[type=number]{
     width: 30%;
     border-radius: 20px;
     text-align: center;
+    margin-top: 12px;
 }
 .return a{
     text-decoration: none;

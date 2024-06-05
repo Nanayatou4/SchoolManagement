@@ -9,7 +9,7 @@ const note_controller=require("../Controllers/NoteController")
 const Route = express.Router();
 
 Route.get('/',(req,res)=>{
-    res.render('./login.ejs');
+   res.render('./login-views/login.ejs');
 });
 
 //route for compte
@@ -18,6 +18,8 @@ Route.post('/login', controllers_Compte.login);
 Route.post('/enregistrer',controllers_main.save)
 Route.get('/',controllers_main.login);
 Route.get('/password',controllers_main.pwd);
+
+Route.post('/learn_sector',controllers_main.learn_sector)
 
 
 //route for exam
@@ -39,4 +41,8 @@ Route.get('/prof-page',prof_controller.prof_page)
 Route.get('/students-notes',prof_controller.students_notes)
 Route.get('/confirmation-delete',)
 
+
+Route.get('/adminPage',controllers_main.pageAdmin);
+Route.get('/studentPage',controllers_main.pageStudent);
+Route.get('/profPage',controllers_main.pageProf);
 module.exports=Route;

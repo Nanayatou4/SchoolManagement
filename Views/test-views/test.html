@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGN UP</title>
+    <link rel="stylesheet" href="../../publics/css/style.css">
+    <link rel="stylesheet" href="../../publics/css/styleBody.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+</head>
+<body>
+<div class="container" >
+    <form method="post" action="/enregistrer" >
+        <h1>Create an account</h1>
+        <div class="form-container">
+            <input type="text" name="prenom" placeholder="firstname" required>
+        </div>
+        <div class="form-container">
+            <input type="text" name="nom" placeholder="lastname" required>
+        </div>
+        <div class="form-container">
+            <input type="email" name="email" placeholder="email" required>
+            <i class='bx bxs-envelope'></i>
+        </div>
+        <div class="form-container">
+            <input type="password" name="password" placeholder="password" required>
+        </div>
+        <div class="form-container">
+            <input type="password" name="confpassword" placeholder="confirmation password" required>
+        </div>
+        <div class="form-container">
+            <select name="status" id="">
+                <option value="administrator">Admin</option>
+                <option value="teacher">Teacher</option>
+                <option value="student">Student</option>
+            </select>
+        </div>
+        <button type="submit" class="button">Sign up</button>
+    </form>
+</div>
+</body>
+</html>

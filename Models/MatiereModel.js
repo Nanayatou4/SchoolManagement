@@ -10,6 +10,10 @@ module.exports = (sequelize, DataTypes)=>
             type: DataTypes.STRING ,
             allowNull: false,
         },
+        ProfesseurId:{
+                    type: DataTypes.TIME,
+                    allowNull: false,
+                }
     },
     {
         freezeTableName: true,

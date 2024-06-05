@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGN-IN</title>
+    <link rel="stylesheet" href="../../publics/css/style.css">
+    <link rel="stylesheet" href="../../publics/css/styleBody.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+</head>
+<body>
+
+    <div class="container" >
+            <form action="/create_student" method="post">
+            if(!filiers){
+                <div classe="alerte alerte-danger" rôle="alerte">
+                 Not dispo of sector !!</div>
+            }else{
+            <h1>Learn your sector</h1>
+                            <div class="form-container">
+                              <!-- <input type="text" placeholder="Your sector" name="sector" required>
+
+                            </div> -->
+                            <select name="status" id="">
+
+                            <% filiers.forEach(function(filiere) { %>
+
+                                        <option value="<%=filiere.Code%>"><%=filiere.Code%></option>
+                                    <% }); %>
+
+
+                                               </select>
+
+                              <button type="submit" class="button">Learn</button>
+
+                              <div class="return">
+                                                            <a href="/" >Cancel</a>
+                                                        </div>
+
+            }
+
+                </form>
+        </div>
+
+
+
+</body>
+</html>

@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes)=>
             allowNull: false,
         },
         ProfesseurId:{
-                    type: DataTypes.TIME,
+                    type: DataTypes.INTEGER,
                     allowNull: false,
                 }
     },

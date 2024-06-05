@@ -1,5 +1,5 @@
 const { Sequelize } = require('sequelize');
-const sequelize = new Sequelize('Films', 'gorgui', 'gof781543477', {
+const sequelize = new Sequelize('SchoolManagement', 'gorgui', 'gof781543477', {
     host: 'localhost',
     dialect: 'mysql',
 });
@@ -16,6 +16,7 @@ tables.Examen = require('./ExamenModel')(sequelize, Sequelize);
 tables.Compte = require('./CompteModel')(sequelize, Sequelize);
 tables.Filiere = require('./filiereModel')(sequelize, Sequelize);
 tables.Matiere = require('./MatiereModel')(sequelize, Sequelize);
+tables.EtudiantMatiere = require('./EtudiantMatiere')(sequelize, Sequelize);
 
 tables.Administrateur.hasOne(tables.Compte,{foreignKey:'AdministrateurId'});
 tables.Compte.belongsTo(tables.Administrateur,{foreignKey:'AdministrateurId'});
@@ -41,8 +42,8 @@ tables.Note.belongsTo(tables.Etudiant,{foreignKey:'EtudiantId'});
 tables.Examen.hasMany(tables.Note,{foreignKey:'ExamenId'});
 tables.Note.belongsTo(tables.Examen,{foreignKey:'ExamenId'});
 
-tables.Etudiant.hasMany(tables.Matiere);
-tables.Matiere.hasMany(tables.Etudiant);
+tables.Etudiant.belongsToMany(tables.Matiere,{ through: tables.EtudiantMatiere });
+tables.Matiere.belongsToMany(tables.Etudiant,{ through: tables.EtudiantMatiere });
 
 tables.Examen.belongsTo(tables.Matiere,{foreignKey:'MatiereId'});
 tables.Matiere.hasMany(tables.Examen,{foreignKey:'MatiereId'});

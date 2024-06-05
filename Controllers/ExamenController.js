@@ -2,13 +2,13 @@ db = require('../Models/sequelize');
 module.exports= examenController= {
 
     add_exam_page: function (req, res) {
-        res.render("./add-exam_page.ejs");
+        res.render("./add_exam_page.ejs");
     }
     ,
 
     edit_exam_page: function (req, res) {
         const id=req.params.id;
-        res.render("./edit-exam_page.ejs",{id});
+        res.render("./edit_exam_page.ejs",{id});
     }
     ,
     edit_exam: function (req, res) {
@@ -21,7 +21,7 @@ module.exports= examenController= {
     }
     ,
     add_exam: function (req, res) {
-        res.render("./edit-exam_page.ejs");
+        res.render("./edit_exam_page.ejs");
     },
     delete_exam: function (req, res) {
         const id = req.params.id;

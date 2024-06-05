@@ -3,8 +3,15 @@ const sequelize = require('sequelize')
 const app = express();
 const bodyParser = require('body-parser');
 const db = require('./Models/sequelize');
+const session = require('express-session')
 const PORT = 2700;
 const route = require("./Routers/Routes");
+
+app.use(session({
+    secret: 'sessionSecret',
+    resave: true,
+    saveUninitialized: true
+}))
 
 module.exports=express;
 app.set('view engine', 'ejs');
@@ -23,7 +30,7 @@ db.sequelize.authenticate().then(()=>{
     console.log(err);
 })
 
-db.sequelize.sync({alter: true}).then(()=>{
+db.sequelize.sync({alter: false}).then(()=>{
     console.log("Database synced");
     app.listen(PORT, ()=>{
     console.log("Server enabled..");

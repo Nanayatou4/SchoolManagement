@@ -31,10 +31,10 @@ module.exports = {
 
     },
     prof_page: function (req, res) {
-        res.render('./prof-views/profPage.ejs');
+        res.render('./prof_views/profPage.ejs');
     },
     students_notes:function (req, res) {
         const rows=db.Note.findAll({include: db.Etudiant});
-        res.render('./student-views/students-view-notes.ejs',{datas:rows})
+        res.render('./student_views/students_view-notes.ejs',{datas:rows})
     }
 }

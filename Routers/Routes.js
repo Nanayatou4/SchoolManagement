@@ -8,9 +8,7 @@ const note_controller=require("../Controllers/NoteController")
 
 const Route = express.Router();
 
-Route.get('/',(req,res)=>{
-   res.render('./login-views/login.ejs');
-});
+Route.get('/',controllers_main.login);
 
 //route for compte
 Route.get('/register', controllers_student.register);
@@ -19,8 +17,8 @@ Route.post('/enregistrer',controllers_main.save)
 Route.get('/',controllers_main.login);
 Route.get('/password',controllers_main.pwd);
 
-Route.post('/learn_sector',controllers_main.learn_sector)
-
+Route.post('/create_student',controllers_main.create_student)
+Route.get('/learn_sector',controllers_main.learn_sector)
 
 //route for exam
 Route.get('/exam',exam_controller.exam_Page);

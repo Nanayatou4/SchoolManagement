@@ -2,14 +2,10 @@ module.exports = (sequelize, DataTypes)=>
 
 {
     const Filiere = sequelize.define('Filiere', {
-        id:{
-            type: DataTypes.INTEGER ,
-            autoIncrement: true,
-            primaryKey: true,
-        },
-        nom:{
+        Code:{
             type: DataTypes.STRING ,
             allowNull: false,
+            primaryKey: true,
         },
     },
     {

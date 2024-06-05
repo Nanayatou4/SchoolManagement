@@ -21,6 +21,7 @@ const mainController = {
                         ProfesseurId: user.id
                     }
                     db.Compte.create(log);
+                    res.redirect('/');
                 }).catch(error => {
                     res.send("error");
                 });
@@ -35,6 +36,7 @@ const mainController = {
                         AdministrateurIp: user.id
                     }
                     db.Compte.create(log);
+                     res.redirect('/');
                 }).catch(error => {
                     res.send("error");
                 });
@@ -51,46 +53,67 @@ const mainController = {
                         motdepasse: req.body.password,
                         EtudiantId: user.id
                     }
+                    req.session.infoLogin=log;
+                    req.session.infoUser=data;
 
-                    res.render('./student-views/learn-sector', {log, data});
+                    db.Filiere.findAll().then(filiers=>{
+
+                        res.render('./student_views/learn_sector.ejs',{filiers});
+
+                    })
+
+
                 }).catch(error => {
                     res.send("error");
                 });
-
-
             }
 
-
-            res.redirect('/');
         } else {
             res.redirect('/register');
         }
 
     },
     login: (req, res) => {
-        res.render('./login-views/login.ejs');
+        res.render('./login_views/login.ejs');
     },
     connect: (req, res) => {
 
 
     },
     pwd: (req, res) => {
-        res.render('./login-views/forgotPassword.ejs');
+        res.render('./login_views/forgotPassword.ejs');
     },
     pageProf: (req, res) => {
-        res.render('./prof-views/ProfPage.ejs');
+        res.render('./prof_views/ProfPage.ejs');
     },
     pageAdmin: (req, res) => {
-        res.render('./admin-views/AdminPage.ejs');
+        res.render('./admin_views/AdminPage.ejs');
     },
     pageStudent: (req, res) => {
-        res.render('./student-views/StudentPage.ejs');
+        res.render('./student_views/StudentPage.ejs');
     },
     learn_sector: (req, res) => {
-        res.render('./student-views/learn_sector.ejs');
+        res.render('./student_views/learn_sector.ejs');
     },
     create_student: (req, res) => {
-        res.render('./student-views/learn_sector.ejs');
+        const filiere=req.body.sector;
+
+        res.json(req.session.infoLogin);
+
+        /*db.Etudiant.create(req.session.infoUser).then(( ) => {
+
+            req.session.infoLogin.FiliereId=req.body.sector;
+            res.json(req.session.infoLogin);
+            *//*db.Compte.create(req.session.infoLogin).then(( ) => {
+
+                     }).catch(error => {
+                                        res.send("error");
+                                    });
+         }).catch(error => {
+                            res.send("error");
+                        });
+                        res.redirect('/');*//*
+        })*/
     }
 };
 

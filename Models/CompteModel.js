@@ -13,17 +13,17 @@ module.exports = (sequelize, DataTypes)=>
         },
 
                 ProfesseurId:{
-                    type: DataTypes.STRING ,
+                    type: DataTypes.INTEGER ,
                     allowNull: true,
                 },
 
                 EtudiantId:{
-                            type: DataTypes.STRING ,
+                            type: DataTypes.INTEGER ,
                             allowNull: true,
                         },
 
                                 AdministrateurId:{
-                                    type: DataTypes.STRING ,
+                                    type: DataTypes.INTEGER ,
                                     allowNull: true,
                                 }
     },

@@ -16,11 +16,11 @@ module.exports = (sequelize, DataTypes)=>
             allowNull: false,
         },
         EtudiantId:{
-                              type: DataTypes.STRING ,
+                              type: DataTypes.INTEGER ,
                               allowNull: false,
                           },
                           ExamenId:{
-                                                                type: DataTypes.STRING ,
+                                                                type: DataTypes.INTEGER ,
                                                                 allowNull: false,
                                                             }
     },

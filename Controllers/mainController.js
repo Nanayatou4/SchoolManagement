@@ -107,7 +107,7 @@ const mainController = {
             if (compte) {
                 if (data.password !== compte.motdepasse) {
 
-                    res.status(401).send('Mot de passe incorrect ');
+                    res.status(400).send('Mot de passe incorrect ');
 
                 } else {
                     if (compte.AdministrateurId !== null) {

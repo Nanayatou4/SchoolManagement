@@ -66,13 +66,13 @@ const mainController = {
             } else if (data.status === 'student') {
 
 
-                db.Etudiant.findOne({where: {email: data.email}}).then(user => {
 
-                    console.log(user.id);
+
+
                     log = {
                         login: req.body.email,
                         motdepasse: req.body.password,
-                        EtudiantId: user.id
+                        EtudiantId: null
                     }
                     req.session.infoLogin = log;
                     req.session.infoUser = data;
@@ -84,9 +84,7 @@ const mainController = {
                     })
 
 
-                }).catch(error => {
-                    res.send("error");
-                });
+
             }
 
         } else {
@@ -142,22 +140,42 @@ const mainController = {
     },
     create_student: (req, res) => {
         const filiere = req.body.sector;
+        req.session.infoUser.FiliereId =filiere;
+        const infolog=req.session.infoLogin;
+        const infouser=req.session.infoUser;
 
-        res.json(req.session.infoLogin);
 
-        db.Etudiant.create(req.session.infoUser).then(() => {
+                    console.log(infolog);
+                    console.log("-------------------------");
+                    console.log(infouser);
 
-            req.session.infoLogin.FiliereId = req.body.sector;
-            res.json(req.session.infoLogin);
-            db.Compte.create(req.session.infoLogin).then(() => {
-                res.redirect('/');
-            }).catch(error => {
-                res.send("error");
-            });
+                    res.redirect('/')
+
+
+        db.Etudiant.create(infouser).then(() => {
+
+
+            db.Etudiant.findOne({where:{email : infouser.email}}).then(()=>{
+
+
+                db.Compte.create(infolog).then(etudiant => {
+                        infolog.EtudiantId=etudiant.email;
+
+                        db.Compte.create(infolog).then(() => {
+
+                                        res.redirect('/');
+                                    }).catch(error => {
+                                        res.send("error");
+                                    });
+                                res.redirect('/');
+                            }).catch(error => {
+                                res.send("error");
+                            });
+
+            })
         }).catch(error => {
             res.send("error");
         });
-
 
     }
 };

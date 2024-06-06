@@ -10,41 +10,35 @@
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
 </head>
 <body>
+<% if(filiers.Code===null){ %>
 
 <div class="container">
-
-    <% if(!filiers){ %>
-        <div classe="alerte alerte-danger" rôle="alerte">
-            Not dispo of sector !!
-        </div>
-    <% }else{ %>
-        <form action="/create_student" method="post">
-            <h1>Learn your sector</h1>
-            <div class="form-container">
-                <!-- <input type="text" placeholder="Your sector" name="sector" required>
-
-              </div> -->
-                <select name="status" id="">
-
-                    <% filiers.forEach(function(filiere) { %>
-
-                        <option value="<%= filiere.Code %>"><%= filiere.Code %></option>
-                    <% }); %>
-
-                </select>
-
-                <button type="submit" class="button">Learn</button>
-
-                <div class="return">
-                    <a href="/">Cancel</a>
-                </div>
-            </div>
-        </form>
-
-    <% } %>
-
+    <div classe="alerte alerte-danger" rôle="alerte">
+        Sector not dispo !!
+    </div>
+    <div class="return">
+        <a href="/register">Return</a>
+    </div>
 </div>
+<% }else{ %>
 
+<div class="container" >
+    <form method="post" action="/create_student" >
 
+        <h1>Inform your sector</h1>
+        <div class="form-container">
+            <select name="status" id="" required >
+                <% filiers.forEach(function(filiere) { %>
+                 <option value="<%= filiere.Code %>"><%= filiere.Code %></option>
+                 <% }); %>
+            </select>
+        </div>
+        <button type="submit" class="button">Inform</button>
+        <div class="return">
+            <a href="/register" >Cancel</a>
+        </div>
+    </form>
+</div>
+<% } %>
 </body>
 </html>

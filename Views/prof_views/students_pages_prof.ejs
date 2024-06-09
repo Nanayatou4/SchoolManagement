@@ -20,22 +20,21 @@
             <th>Actions</th>
         </tr>
 
-        <% Notes.forEach(function(note) { %>
+        <% students.forEach(function(note) { %>
 
             <tr>
                 <td><%= note.nom %></td>
                 <td><%= note.prenom %></td>
                 <td><%= note.valeur %></td>
                 <td>
-                    <a href="/edit-note-page/<%=note.id%>">Edit</a>&nbsp;&nbsp;
-                    <a href="/confirmation-delete-note/<%=note.id%>">Delete</a>
+                    <a href="/add-note-page/<%=note.id%>">Add note</a>&nbsp;&nbsp;
                 </td>
             </tr>
         <% }); %>
 
     </table>
     <div class="text-center mt-5">
-        <a href="/add-exam" style="margin-bottom: 4px;">Programmer un exam</a>
+        <a href="/profPage" style="margin-bottom: 4px;">Return to the main page</a>
     </div>
 </main>
 </body>

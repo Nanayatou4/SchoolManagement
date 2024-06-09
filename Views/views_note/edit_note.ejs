@@ -10,7 +10,7 @@
 </head>
 <body>
 <div class="container" >
-    <form method="post" action="/edit-note/<%=row.id%>?_method=PUT" >
+    <form method="post" action="/edit-note/<%= id %>?_method=PUT" >
         <h1>Edit a note </h1>
         <div class="form-container">
             <input type="text" name="firstname" placeholder="the firstname's student" value="<%=row.nom%>" required>

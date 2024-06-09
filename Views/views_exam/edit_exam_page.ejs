@@ -11,19 +11,19 @@
 <body>
 
 <div class="container" >
-    <form method="post" action="/edit-exam" >
+    <form method="post" action="/edit-exam/<%=exam.id%>">
         <h1>Edite the exam</h1>
         <div class="form-container">
             <label for="date">the new date</label>
-            <input type="date" name="date" placeholder="the date" id="date"  required>
+            <input type="date" name="date" placeholder="the date" id="date" value="<%=exam.date%>"  required>
         </div>
         <div class="form-container">
             <label for="heure_debut">new hour for the start</label>
-            <input type="time" name="heure_debut" placeholder="hour for the start" id="heure_debut"  required>
+            <input type="time" name="heure_debut" placeholder="hour for the start" id="heure_debut"  value="<%=exam.heureDebut%>"  required>
         </div>
         <div class="form-container">
             <label for="heure_fin">new hour for the end</label>
-            <input type="time" name="heure_fin" placeholder="hour for the end" id="heure_fin" required>
+            <input type="time" name="heure_fin" placeholder="hour for the end" id="heure_fin" value="<%=exam.heureFin%>"  required>
         </div>
         <button type="submit" class="button">Save</button>
     </form>

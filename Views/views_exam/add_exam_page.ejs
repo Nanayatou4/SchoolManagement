@@ -9,6 +9,18 @@
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
 </head>
 <body>
+
+<% if(subjects==null){ %>
+    <div class="container">
+        <div classe="alerte alerte-danger" rôle="alerte">
+            subjects not dispo !!
+        </div>
+        <div class="return">
+            <a href="/exam">Return</a>
+        </div>
+    </div>
+
+<% }else{ %>
 <div class="container" >
     <form method="post" action="/add-exam" >
         <h1>Add a exam </h1>
@@ -17,15 +29,23 @@
             <input type="date" name="date" placeholder="the date" id="date"  required>
         </div>
         <div class="form-container">
-            <label for="heure_debut">hour for the start</label>
+            <label for="heure_debut">hour to start</label>
             <input type="time" name="heure_debut" placeholder="hour for the start" id="heure_debut"  required>
         </div>
         <div class="form-container">
             <label for="heure_fin">hour for the end</label>
             <input type="time" name="heure_fin" placeholder="hour for the end" id="heure_fin" required>
         </div>
+        <div class="form-container">
+            <select name="subjectId" id="" required >
+                <% subjects.forEach(function(subject) { %>
+                    <option value="<%= subject.id %>"><%= subject.nom %></option>
+                <% }); %>
+            </select>
+        </div>
         <button type="submit" class="button">Save</button>
     </form>
 </div>
+<% } %>
 </body>
 </html>

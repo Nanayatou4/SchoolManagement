@@ -13,7 +13,7 @@
 
     <div class="container" >
             <form action="/login" method="post">
-                <h1>Login</h1>
+                <h1><%=message%></h1>
                 <div class="form-container">
                   <input type="email" placeholder="Your email" name="email" required>
                   <i class='bx bxs-envelope'></i>
@@ -24,10 +24,10 @@
                   </div>
                   <div class="forgot-password">
                     <label for=""><input type="checkbox">Remember me</label>
-                  <a href="/password">Forgot password</a>
+                  <a href="/change_password-page">Forgot password</a>
                   </div>
                   <button type="submit" class="button">Login</button>
-                   
+
                   <div class="create-account">
                     <p>Don't have an account? <a href="/register">Register</a></p>
                   </div>

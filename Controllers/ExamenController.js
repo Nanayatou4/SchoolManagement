@@ -2,15 +2,23 @@ db = require('../Models/sequelize');
 module.exports= examenController= {
 
     add_exam_page: function (req, res) {
-        res.render("./add_exam_page.ejs");
-    }
-    ,
-
+        //recuperation des sectors pour qui puisse choisir la matiere
+        db.Matiere.findAll(subjects=>{
+            res.render("./views_exam/add_exam_page.ejs",{subjects});
+        }).catch(()=>{
+            res.send('error');
+        });
+    },
     edit_exam_page: function (req, res) {
+
+        //recuperer l'id de lexamen pour trouver ses info
         const id=req.params.id;
-        res.render("./edit_exam_page.ejs",{id});
-    }
-    ,
+        db.Examen.findByPk(id).then(exam=>{
+            res.render("./views_exam/edit_exam_page.ejs",{exam});
+        }).catch(err=>{
+            res.send('error');
+        });
+    },
     edit_exam: function (req, res) {
         const id = req.params.id;
         db.Examen.findOne({where : { id: id} }).then(result=>{
@@ -20,11 +28,8 @@ module.exports= examenController= {
         });
     }
     ,
-    add_exam: function (req, res) {
-        res.render("./edit_exam_page.ejs");
-    },
     delete_exam: function (req, res) {
-        const id = req.params.id;
+        const id = req.body.id;
     }
     ,
     exam_Page(req, res) {

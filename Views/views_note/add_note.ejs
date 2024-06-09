@@ -10,19 +10,31 @@
 </head>
 <body>
 <div class="container" >
-    <form method="post" action="/add-note/<%=row.id%>" >
+    <form method="post" action="/add-note/<%=student.id%>" >
         <h1>Add a note </h1>
         <div class="form-container">
-            <label for="firstname">the date</label>
-            <input type="text" name="date" placeholder="the name's student" id="firstname" required>
+            <label for="firstname">Firstname's student</label>
+            <input type="text" name="date" placeholder="the name's student" value="<%=student.nom%>"  id="firstname" required>
         </div>
         <div class="form-container">
-            <label for="lastname">hour for the start</label>
-            <input type="time" name="heure_debut" placeholder="hour for the start" id="lastname" required>
+            <label for="lastname">Lastname's student</label>
+            <input type="text" name="lastname" placeholder="Lastname's studen" value="<%=student.prenom%>" id="lastname" required>
         </div>
         <div class="form-container">
-            <label for="value">hour for the end</label>
-            <input type="time" name="heure_fin" placeholder="hour for the end" id="value" required>
+            <label for="desc">The apprciation's note</label>
+            <input type="text" name="desc" placeholder="The apprciation's note" value="<%=student.prenom%>" id="desc" required>
+        </div>
+        <div class="form-container">
+            <label for="value">The note value</label>
+            <input type="number" name="note" placeholder="The note value" id="value" required>
+        </div>
+        <div class="form-container">
+            <label for="date_exam">Exam of </label>
+            <select name="exams" id="date_exam" required >
+                <% exams.forEach(function(exam) { %>
+                    <option name="id_exam" value="<%= exam.id %>"><%= exam.date %></option>
+                <% }); %>
+            </select>
         </div>
         <button type="submit" class="button">Save</button>
     </form>

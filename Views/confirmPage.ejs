@@ -3,25 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIGN-IN</title>
-    <!--<link rel="stylesheet" href="../../publics/css/bootstrap.css">-->
-    <link rel="stylesheet" href="../../publics/css/style.css">
-    <link rel="stylesheet" href="../../publics/css/styleBody.css">
-
-
+    <title>Confirmation</title>
+    <link rel="stylesheet" href="../publics/css/style.css">
+    <link rel="stylesheet" href="../publics/css/styleBody.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
 </head>
 <body>
 
 <div class="container">
-    <h1>Login</h1>
-    <form method="POST" action="/delete-note/<%= id %>?_method=DELETE">
-        <button type="submit" class="button">Confirmer</button>
+    <h1>Confirmation</h1>
+    <form method="POST" action="/delete-note/<%=id%>?_method=DELETE">
+        <button type="submit" class="button">Confirm</button>
         <div class="return">
-            <a href="/note-page" >Annuler</a>
+            <a href="/note-page">Cancel</a>
         </div>
     </form>
-
 </div>
 </body>
 </html>

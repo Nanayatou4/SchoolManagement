@@ -3,12 +3,23 @@ db = require('../Models/sequelize');
 module.exports ={
     edit_note_page:function (req,res) {
         const id=req.params.id;
-        const row=db.Etudiant.findAll({include:{ model : db.Note }},{where :{'id': id}});
-        res.render('./views_note/edit_note.ejs',{row});
+        db.Etudiant.findOne({include:{ model : db.Note }},{where :{id: id}}).then(row=>{
+
+            res.render('./views_note/edit_note.ejs',{row,id});
+        }).catch(error=>{
+           res.send("error");
+        });
+
     },
     add_note_page:function (req, res) {
         const id=req.params.id;
-        res.render('./views_note/add_note.ejs',{id});
+        db.Etudiant.findByPk(id).then(student=>{
+            db.Examen.findAll().then(exams=>{
+                res.render('./views_note/add_note.ejs',{student,exams});
+            })
+
+        })
+
     },
     confirm_delete_note:function (req, res) {
         const id=req.params.id;
@@ -16,7 +27,6 @@ module.exports ={
     },
     note_page : function (req, res) {
     db.Note.findAll({include:db.Etudiant}).then(Notes=>{
-
         res.render('./student_views/students_view_note.ejs',{Notes});
     })
 

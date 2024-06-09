@@ -3,7 +3,8 @@ const sequelize = require('sequelize')
 const app = express();
 const bodyParser = require('body-parser');
 const db = require('./Models/sequelize');
-const PORT = 2900;
+const methodOverride = require('method-override');
+const PORT = 3000;
 const route = require("./Routers/Routes");
 
 module.exports=express;
@@ -16,6 +17,7 @@ app.use("/publics", express.static("publics"));
 
 app.use('/',route);
 
+app.use(methodOverride('_method'))
 
 
 
@@ -31,6 +33,7 @@ db.sequelize.sync({alter: true}).then(()=>{
     console.log("Server enabled..");
 });
 }).catch((err)=>{
+    console.log(err);
     console.log("Error to sync database");
 })
 

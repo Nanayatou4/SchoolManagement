@@ -15,6 +15,14 @@ module.exports = (sequelize, DataTypes)=>
             type: DataTypes.STRING ,
             allowNull: false,
         },
+        EtudiantId:{
+            type: DataTypes.INTEGER ,
+            allowNull: false,
+        },
+        ExamenId:{
+            type: DataTypes.INTEGER ,
+            allowNull: false,
+        }
     },
     {
         freezeTableName: true,

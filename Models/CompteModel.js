@@ -1,27 +1,31 @@
-const { Administrateur } = require("./sequelize");
-
 module.exports = (sequelize, DataTypes)=>
 
 {
     const Compte = sequelize.define('Compte', {
-        id:{
-            type: DataTypes.INTEGER ,
-            autoIncrement: true,
+        login:{
+            type: DataTypes.STRING ,
             primaryKey: true,
+            allowNull: false,
         },
-        username:{
+        motdepasse:{
             type: DataTypes.STRING ,
             allowNull: false,
         },
-        password:{
-            type: DataTypes.STRING ,
-            allowNull: false,
+
+        ProfesseurId:{
+            type: DataTypes.INTEGER ,
+            allowNull: true,
         },
-        proprietaire:{
-            type: DataTypes.STRING ,
-            allowNull: false,
+
+        EtudiantId:{
+            type: DataTypes.INTEGER ,
+            allowNull: true,
+        },
+
+        AdministrateurId:{
+            type: DataTypes.INTEGER ,
+            allowNull: true,
         }
-        
     },
     {
         freezeTableName: true,

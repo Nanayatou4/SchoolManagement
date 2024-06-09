@@ -10,62 +10,81 @@ const mainController={
             nom:req.body.nom,
             prenom:req.body.prenom,
             email:req.body.email,
-            username: req.body.username,
-            password: req.body.password
         }
+        let log = null;
 
-       /*  let log ={
-            username: data.username,
-            password : data.password,
-            ProsseurId: null,
-            AdministrateurId : null,
-            EtudiantId: null
-        };*/
-        
-        if(data.status == 'admin'){
-           
-           const admin = db.Administrateur.create(data);
-           
-           if (admin) {
-            db.Compte.create({
-                username: data.username,
-                password: data.password,
-                proprietaire: data.status
-            });
-           }           
-            //db.Compte.create(log);
-            res.redirect('/');
-           
-        }else if (data.status == 'teacher') {
-            const prof = db.Professeur.create(data);
-           
-            if (prof) {
-             db.Compte.create({
-                 username: data.username,
-                 password: data.password,
-                 proprietaire: data.status
+       if(req.body.password === req.body.passwordconf){
+        if(data.status === 'admin'){
+           db.Administrateur.create(data).then(()=>{
+             db.Administrateur.findOne({where: {
+                email: data.email
+             }}).then(user =>{
+              log = {
+                login: req.body.email,
+                pass: req.body.password,
+                AdministrateurId: user.id
+              }
+              console.log("Admin enregistre avec succes");
+              db.Compte.create(log).then(()=>{
+                console.log("Compte enregistre avec succes");
+                res.redirect('/');
+              }).catch(err =>{
+                res.render('./register.ejs', {message: 'Account already exist !'});
+              });
+             }).catch(err =>{
+                res.render('./register.ejs', {message: 'Error! try again'});
              });
-            }           
-             //db.Compte.create(log);
-            res.redirect('/');
+           });
+            
+         }else if (data.status === 'teacher') {
+            db.Professeur.create(data).then(()=>{
+                db.Professeur.findOne({where: {
+                   email: data.email
+                }}).then(user =>{
+                 log = {
+                   login: req.body.email,
+                   pass: req.body.password,
+                   ProfesseurId: user.id
+                 }
+                 console.log(" enregistre avec succes");
+                 db.Compte.create(log).then(()=>{
+                   console.log("Compte enregistre avec succes");
+                   res.redirect('/');
+                 }).catch(err =>{
+                   res.render('./register.ejs', {message: 'Account already exist !'});
+                 });
+                }).catch(err =>{
+                   res.render('./register.ejs', {message: 'Error! try again'});
+                });
+              });
+ 
+         
+         }else if (data.status === 'student') {
+            db.Etudiant.create(data).then(()=>{
+                db.Etudiant.findOne({where: {
+                   email: data.email
+                }}).then(user =>{
+                 log = {
+                   login: req.body.email,
+                   pass: req.body.password,
+                   EtudiantId: user.id
+                 }
+                 console.log("Etudiant enregistre avec succes");
+                 db.Compte.create(log).then(()=>{
+                   console.log("Compte enregistre avec succes");
+                   res.redirect('/');
+                 }).catch(err =>{
+                   res.render('./register.ejs', {message: 'Account already exist !'});
+                 });
+                }).catch(err =>{
+                   res.render('./register.ejs', {message: 'Error! try again'});
+                });
+              });
+              }
+            }    
+         }, 
+       
 
-        
-        }else if (data.status == 'student') {
-              const etudiant = db.Etudiant.create(data);
-           
-           if (etudiant) {
-            db.Compte.create({
-                username: data.username,
-                password: data.password,
-                proprietaire: data.status
-            });
-           }           
-            //db.Compte.create(log);
-            res.redirect('/');
-
-        }
-
-    },
     login: (req,res)=>{
            res.render('/login');
         const con={
@@ -73,18 +92,25 @@ const mainController={
             pass: req.body.password, 
             pro: req.body.proprietaire
         }
-        if (con.pro == 'admin') {
-            res.redirect('/adminpage');
+        if (con.pro == 'admin') {        
+          res.redirect('/adminpage');
         }else if(con.pro == 'teacher'){
             res.redirect('/profpage');
         }else if(con.pro == 'student'){
             res.redirect('/studentpage');
         }
              
-      
     },
+
     pwd : (req,res)=>{
          res.render('./forgotPassword.ejs');
+         const recup={
+            pass: req.body.password,
+            confpass: req.body.password 
+         }
+
+         console.log(recup);
+         res.redirect('/');
     }
 };
 

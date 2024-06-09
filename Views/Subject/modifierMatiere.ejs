@@ -3,34 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modify teacher</title>
+    <title>Modify Subject</title>
     <link rel="stylesheet" href="/publics/css/style.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
 </head>
 <body>
     <div class="container" >
-        <form action="" method="post">
-            <h1>Modify Teachers Page</h1>
+        <form action="/editSubject/<%= subjects.id %> method=PUT" method="post">
+            <h1>Modify Subjects Page</h1>
             <div class="form-container">
                 <input type="text" placeholder="nom" required> 
               </div>
               <div class="form-container">
-                <input type="text" placeholder="prenom" required> 
+                <input type="number" placeholder="professeurId" required> 
               </div>
               <div class="form-container">
-                <input type="text" placeholder="email" required> 
-              </div>
-              <div class="form-container">
-                <input type="text" placeholder="status" required> 
-              </div>
-              <div class="form-container">
-                <input type="text" placeholder="username" required> 
-              </div>
-              <div class="form-container">
-                <input type="password" placeholder="password" required> 
+                <input type="number" placeholder="etudiantId" required> 
               </div>
               <button type="submit" class="button">Modify</button>&nbsp;&nbsp;&nbsp;
               <button type="submit" class="button">Cancel</button>
-
 </body>              
 </html>

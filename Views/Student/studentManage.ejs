@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students Management</title>
+    <link rel="stylesheet" href="../publics/css/style.css">
+    <link rel="stylesheet" href="../publics/css/style2.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+    <link rel="stylesheet" href="../publics/css/bootstrap-reboot.css">
+    <link rel="stylesheet" href="../publics/css/bootstrap.css">
+</head>
+<body>
+<main class="form-container">
+	<table border style="width: 100%;">
+        <tr>
+            <th>ID</th>
+            <th>Lastname</th>
+            <th>Firstname</th>
+            <th>Email</th>
+            <th>Status</th>
+            <th>SectorId</th>
+            <th>Action</th>
+        </tr>
+
+        <% students.forEach(function(student){ %>
+
+            <tr>
+                <td><%= student.id %></td>
+                <td><%= student.nom %></td>
+                <td><%= student.prenom %></td>
+                <td><%= student.email %></td>
+                <td><%= student.status %></td>
+                <td><%= student.FiliereId %></td>
+                <td>
+                    <a href="<%=student.id%>">Modify</a>&nbsp;&nbsp;
+                    <a href="/ajoutstud" style="margin-bottom: 4px;">Add</a>
+                    <a href="">Delete</a>
+                    <a href="/studentManage">Annuler</a>
+                </td>
+            </tr>
+        <% }); %>
+
+    </table>
+</main>
+</body>
+</html>
+

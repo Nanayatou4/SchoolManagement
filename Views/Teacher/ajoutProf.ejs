@@ -3,25 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Subject</title>
+    <title>Add teacher</title>
     <link rel="stylesheet" href="/publics/css/style.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
 </head>
 <body>
     <div class="container" >
-        <form action="" method="post">
-            <h1>Add Subjects Page</h1>
+        <form action="/addTeacher" method="post">
+            <h1>Add Teachers Page</h1>
             <div class="form-container">
                 <input type="text" placeholder="nom" required> 
               </div>
               <div class="form-container">
-                <input type="number" placeholder="professeurId" required> 
+                <input type="text" placeholder="prenom" required> 
               </div>
               <div class="form-container">
-                <input type="number" placeholder="etudiantId" required> 
+                <input type="text" placeholder="email" required> 
+              </div>
+              <div class="form-container">
+                <input type="text" placeholder="status" required> 
+              </div>
+              <div class="form-container">
+                <input type="text" placeholder="username" required> 
+              </div>
+              <div class="form-container">
+                <input type="password" placeholder="password" required> 
               </div>
               <button type="submit" class="button">Add</button>&nbsp;&nbsp;&nbsp;
               <button type="submit" class="button">Cancel</button>
 
-</body>              
+            </form>
+    </div>
+</body>
 </html>

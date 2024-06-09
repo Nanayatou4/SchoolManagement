@@ -22,6 +22,14 @@ module.exports = (sequelize, DataTypes)=>
             type: DataTypes.TIME,
             allowNull: false,
         },
+        ProfesseurId:{
+            type: DataTypes.INTEGER,
+            allowNull: false,
+       },
+       MatiereId:{
+           type: DataTypes.INTEGER,
+           allowNull: false,
+       }
     },
     {
         freezeTableName: true,

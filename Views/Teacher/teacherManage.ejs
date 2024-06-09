@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teachers Management</title>
+    <link rel="stylesheet" href="../publics/css/style.css">
+    <link rel="stylesheet" href="../publics/css/style2.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+    <link rel="stylesheet" href="../publics/css/bootstrap-reboot.css">
+    <link rel="stylesheet" href="../publics/css/bootstrap.css">
+</head>
+<body>
+<main class="form-container">
+	<table border style="width: 100%;">
+        <tr>
+            <th>ID</th>
+            <th>Lastname</th>
+            <th>Firstname</th>
+            <th>Email</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+
+        <% teachers.forEach(function(teacher) { %>
+
+            <tr>
+                <td><%= teacher.id %></td>
+                <td><%= teacher.nom %></td>
+                <td><%= teacher.prenom %></td>
+                <td><%= teacher.email %></td>
+                <td><%= teacher.status %></td>
+                <td>
+                    <a href="/profManage/<%=teachers.id%>">Modify</a>&nbsp;&nbsp;
+                    <a href="/add_teacher" style="margin-bottom: 4px;">Add</a>
+                    <a href="">Delete</a>
+                    <a href="/">Annuler</a>
+                </td>
+            </tr>
+        <% }); %>
+
+    </table>
+</main>
+</body>
+</html>
+</body>
+</html>

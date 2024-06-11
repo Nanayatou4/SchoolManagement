@@ -3,31 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIGN-IN</title>
+    <title>Sectors Management</title>
     <link rel="stylesheet" href="../../publics/css/style.css">
-    <link rel="stylesheet" href="../../publics/css/styleBody.css">
-
+    <link rel="stylesheet" href="../../publics/css/style2.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+    <link rel="stylesheet" href="../../publics/css/bootstrap.css">
+    <link rel="stylesheet" href="../../publics/css/styleBody.css">
 </head>
 <body>
+<main class="form-container">
+    <div class="text-center mt-5">
+        <a href="/add-exam-page" style="margin-bottom: 4px;">Add sector</a>
+    </div>
+    <table border style="width: 100%;" style="color: white;">
+        <tr>
+            <th>Name</th>
+            <th>Generic name</th>
+            <th>Actions</th>
+        </tr>
 
-<div class="container" >
-    <form action="/create-student" method="post">
-        <h1>Learn your sector</h1>
-        <div class="form-container">
-            <input type="text" placeholder="Your sector" name="sector" required>
+        <% sectors.forEach(function(sector){ %>
+        <tr>
+            <td><%= sector.Code %></td>
+            <td><%= sector.generic_name %></td>
 
-        </div>
-
-        <button type="submit" class="button">Learn</button>
-
-        <div class="return">
-        <a href="/" >Annuler</a>
-</div>
-    </form>
-</div>
-
-
-
+            <td class="flex">
+                <a href="<%=sector.id%>">Modify</a>&nbsp;&nbsp;
+                <form method="post" action="/delete_student" onsubmit="return confirm('Are you sure to delete this student');" >
+                    <input type="hidden" name="action" value="DELETE">
+                    <input type="hidden" name="id" value="<%=student.id%>">
+                    <input class="submit" type="submit" value="Delete">
+                </form>
+            </td>
+        </tr>
+        <% }); %>
+    </table>
+</main>
 </body>
 </html>

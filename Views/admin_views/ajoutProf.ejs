@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add teacher</title>
+    <link rel="stylesheet" href="/publics/css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+    <link rel="stylesheet" href="../../publics/css/styleBody.css">
+</head>
+<body>
+<div class="container">
+    <form action="/addTeacher" method="post">
+        <h1>Add Teachers Page</h1>
+        <div class="form-container">
+            <input type="text" placeholder="Firsname" class="nom" required>
+        </div>
+        <div class="form-container">
+            <input type="text" placeholder="Lastname" name="prenom" required>
+        </div>
+        <div class="form-container">
+            <input type="email" placeholder="email" name="email" required>
+        </div>
+        <div class="form-container">
+            <select name="status" id="" required>
+                <% matieres.forEach(function(matiere) { %>
+                    <option value="<%= matiere.id %>"><%= matiere.nom %></option>
+                <% }); %>
+            </select>
+        </div>
+        <button type="submit" class="button">Add</button>&nbsp;&nbsp;&nbsp;
+        <div class="return">
+            <a href="/">Cancel</a>
+        </div>
+    </form>
+</div>
+</body>
+</html>

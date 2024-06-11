@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Student</title>
+    <link rel="stylesheet" href="/publics/css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+</head>
+<body>
+    <div class="container" >
+        <form action="/addStudent" method="post">
+            <h1>Add Students Page</h1>
+            <div class="form-container">
+                <input type="text" placeholder="nom" name="nom" required>
+              </div>
+              <div class="form-container">
+                <input type="text" placeholder="prenom" name="prenom" required>
+              </div>
+              <div class="form-container">
+                <input type="email" placeholder="email" class="email" required>
+              </div>
+            <div class="form-container">
+                <select name="filiereId" id="" required >
+                    <% filieres.forEach(function(filiere) { %>
+                        <option value="<%= filiere.Code %>"><%= filiere.Code %></option>
+                    <% }); %>
+                </select>
+            </div>
+
+              <button type="submit" class="button">Add</button>
+              <button type="submit" class="button">Cancel</button>
+
+            </form>
+    </div>
+</body>
+</html>

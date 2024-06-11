@@ -22,20 +22,20 @@
         </tr>
 
         <% students.forEach(function(student){ %>
-        <tr>
-            <td><%= student.nom %></td>
-            <td><%= student.prenom %></td>
-            <td><%= student.email %></td>
-            <td><%= sector.nom %></td>
-            <td class="flex">
-                <a href="<%=student.id%>">Modify</a>&nbsp;&nbsp;
-                <form method="post" action="/delete_student" onsubmit="return confirm('Are you sure to delete this student');" >
-                    <input type="hidden" name="action" value="DELETE">
-                    <input type="hidden" name="id" value="<%=student.id%>">
-                    <input class="submit" type="submit" value="Delete">
-                </form>
-            </td>
-        </tr>
+            <tr>
+                <td><%= student.nom %></td>
+                <td><%= student.prenom %></td>
+                <td><%= student.email %></td>
+                <td><%= sector.nom %></td>
+                <td class="flex">
+                    <a href="<%=student.id%>">Modify</a>&nbsp;&nbsp;
+                    <form method="post" action="/delete_student" onsubmit="return confirm('Are you sure to delete this student');" >
+                        <input type="hidden" name="action" value="DELETE">
+                        <input type="hidden" name="id" value="<%=student.id%>">
+                        <input class="submit" type="submit" value="Delete">
+                    </form>
+                </td>
+            </tr>
         <% }); %>
 
     </table>

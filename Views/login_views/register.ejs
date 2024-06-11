@@ -10,39 +10,39 @@
 </head>
 <body>
 
-    <div class="container" >
-            <form method="post" action="/enregistrer" >
+<div class="container">
+    <form method="post" action="/enregistrer">
 
 
-                <h1><%= message %></h1>
-                <div class="form-container">
-                  <input type="text" name="prenom" placeholder="firstname" required>
-                </div>
-                <div class="form-container">
-                    <input type="text" name="nom" placeholder="lastname" required>
-                  </div>
-                  <div class="form-container">
-                    <input type="email" name="email" placeholder="email" required>
-                    <i class='bx bxs-envelope'></i>
-                  </div>
-                <div class="form-container">
-                    <input type="password" name="password" placeholder="password" required>
-                </div>
-                <div class="form-container">
-                    <input type="password" name="confpassword" placeholder="confirmation password" required>
-                </div>
-                  <div class="form-container">
-                    <select name="status" id="">
-                        <option value="administrator">Admin</option>
-                        <option value="teacher">Teacher</option>
-                        <option value="student">Student</option>
-                    </select>
-                  </div>
-                <button type="submit" class="button">Sign up</button>
-                <div class="return">
-                            <a href="/" >Cancel</a>
-                        </div>
-                </form>
+        <h1><%= message %></h1>
+        <div class="form-container">
+            <input type="text" name="prenom" placeholder="firstname" required>
         </div>
+        <div class="form-container">
+            <input type="text" name="nom" placeholder="lastname" required>
+        </div>
+        <div class="form-container">
+            <input type="email" name="email" placeholder="email" required>
+            <i class='bx bxs-envelope'></i>
+        </div>
+        <div class="form-container">
+            <input type="password" name="password" placeholder="password" required>
+        </div>
+        <div class="form-container">
+            <input type="password" name="confpassword" placeholder="confirmation password" required>
+        </div>
+        <div class="form-container">
+            <select name="status" id="">
+                <option value="administrator">Admin</option>
+                <option value="teacher">Teacher</option>
+                <option value="student">Student</option>
+            </select>
+        </div>
+        <button type="submit" class="button">Sign up</button>
+        <div class="return">
+            <a href="/">Cancel</a>
+        </div>
+    </form>
+</div>
 </body>
 </html>

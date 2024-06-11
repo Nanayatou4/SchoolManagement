@@ -23,19 +23,21 @@
         </tr>
 
         <% sectors.forEach(function(sector){ %>
-        <tr>
-            <td><%= sector.Code %></td>
-            <td><%= sector.generic_name %></td>
+            <tr>
+                <td><%= sector.Code %></td>
+                <td><%= sector.generic_name %></td>
 
-            <td>
-                <a href="#">Modify</a>&nbsp;&nbsp;
-                <a href="/">Annuler</a>
-            </td>
-        </tr>
+                <td class="flex">
+                    <a href="/edite/<%=sector.id%>">Modify</a>&nbsp;&nbsp;
+                    <form method="post" action="/delete_student" onsubmit="return confirm('Are you sure to delete this student');" >
+                        <input type="hidden" name="action" value="DELETE">
+                        <input type="hidden" name="id" value="<%=sector.id%>">
+                        <input class="submit" type="submit" value="Delete">
+                    </form>
+                </td>
+            </tr>
         <% }); %>
-
     </table>
-
 </main>
 </body>
 </html>

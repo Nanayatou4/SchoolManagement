@@ -1,0 +1,41 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subjects Management</title>
+    <link rel="stylesheet" href="../../publics/css/style.css">
+    <link rel="stylesheet" href="../../publics/css/style2.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+    <link rel="stylesheet" href="../../publics/css/bootstrap-reboot.css">
+    <link rel="stylesheet" href="../../publics/css/bootstrap.css">
+</head>
+<body>
+<main class="form-container">
+    <table border style="width: 100%;" style="color: white;">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>TeacherId</th>
+            <th>StudentId</th>
+        </tr>
+
+        <% subjects.forEach(function(subject){ %>
+            <tr>
+                <td><%= subject.id %></td>
+                <td><%= subject.nom %></td>
+                <td><%= subject.ProfesseurId %></td>
+                <td><%= subject.EtudiantId %></td>
+                <td>
+                    <a href="<%=subject.id%>">Modify</a>&nbsp;&nbsp;
+                    <a href="/ajoutMatiere" style="margin-bottom: 4px;">Add</a>
+                    <a href="/deleteSubject">Delete</a>
+                    <a href="/">Annuler</a>
+                </td>
+            </tr>
+        <% }); %>
+
+    </table>
+</main>
+</body>
+</html>

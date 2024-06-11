@@ -66,7 +66,7 @@ module.exports = {
     students_notes: function (req, res) {
         db.Etudiant.findAll().then(students => {
 
-            res.render('./student_views/students_pages_prof.ejs', {students});
+            res.render('./prof_views/students_pages_prof.ejs', {students});
 
         }).catch(err => {
             console.log("error");

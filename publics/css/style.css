@@ -244,7 +244,7 @@ margin-right: 3px;
     width: 100%;
 }
 table td,table th,main a{
-    padding: 6px;
+    padding: 4px;
     font-size: 25px;
     font-weight: bold;
     color: wheat;
@@ -333,4 +333,22 @@ input[type=number]{
 
 .form-container .mt{
     margin-top: 5px;
+}
+form .submit {
+    background: transparent;
+    color: wheat;
+    font-weight: bold;
+    border-radius: 8px;
+    font-size: 23px;
+    box-shadow: none;
+    border: 1px solid wheat;
+    margin-left: 30%;
+    margin-top: 3%;
+    padding: 3px;
+}
+
+tr .flex {
+    display: flex;
+    justify-content: space-around;
+
 }

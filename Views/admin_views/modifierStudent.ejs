@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modify Student</title>
+    <link rel="stylesheet" href="/publics/css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+</head>
+<body>
+    <div class="container" >
+        <form action="/editStudent/<% students.id %>?_method=PUT" method="post">
+            <h1>Modify Students Page</h1>
+            <div class="form-container">
+                <input type="text" placeholder="nom" required> 
+              </div>
+              <div class="form-container">
+                <input type="text" placeholder="prenom" required> 
+              </div>
+              <div class="form-container">
+                <input type="text" placeholder="email" required> 
+              </div>
+            <div class="form-container">
+                <select name="teacherId" id="" required >
+                    <% filieres.forEach(function(filiere) { %>
+                        <option value="<%= filiere.Code %>"><strong>Mr(s) </strong> <%= filiere.Code %></option>
+                    <% }); %>
+                </select>
+            </div>
+
+              <button type="submit" class="button">Modify</button>&nbsp;&nbsp;&nbsp;
+              <button type="submit" class="button">Cancel</button>
+
+            </form>
+    </div>
+</body>
+</html>

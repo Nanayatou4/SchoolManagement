@@ -1,23 +1,22 @@
-module.exports = (sequelize, DataTypes)=>
-{
+module.exports = (sequelize, DataTypes) => {
     const Matiere = sequelize.define('Matiere', {
-        id:{
-            type: DataTypes.INTEGER ,
-            autoIncrement: true,
-            primaryKey: true,
+            id: {
+                type: DataTypes.INTEGER,
+                autoIncrement: true,
+                primaryKey: true,
+            },
+            nom: {
+                type: DataTypes.STRING,
+                allowNull: false,
+            },
+            ProfesseurId: {
+                type: DataTypes.INTEGER,
+                allowNull: false,
+            }
         },
-        nom:{
-            type: DataTypes.STRING ,
-            allowNull: false,
-        },
-        ProfesseurId:{
-                    type: DataTypes.INTEGER,
-                    allowNull: false,
-                }
-    },
-    {
-        freezeTableName: true,
-        timestamps: false,
-    });
+        {
+            freezeTableName: true,
+            timestamps: false,
+        });
     return Matiere;
 };

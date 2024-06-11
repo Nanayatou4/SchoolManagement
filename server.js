@@ -6,6 +6,9 @@ const db = require('./Models/sequelize');
 const session = require('express-session')
 const PORT = 2800;
 const route = require("./Routers/Routes");
+const _methode=require('method-override');
+
+app.use(_methode('_method'));
 
 app.use(session({
     secret: 'sessionSecret',

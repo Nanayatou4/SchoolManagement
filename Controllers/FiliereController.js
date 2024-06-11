@@ -18,6 +18,10 @@ module.exports = {
     },
     add_sector_page: (req,res)=>{
         res.render('./admin_views/ajoutFiliere.ejs');
+<<<<<<< HEAD
     },
 
+=======
+    }
+>>>>>>> c548fa8a70543a6ea0b34048e5d42e8558a583b4
 }

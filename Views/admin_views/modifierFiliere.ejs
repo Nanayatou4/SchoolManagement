@@ -10,7 +10,7 @@
 </head>
 <body>
 <div class="container" >
-    <form action="/editSector/<% sectors.id %>?_method=PUT" method="post">
+    <form action="/editSector?_method=PUT" method="post">
         <h1>Modify Sector Page</h1>
         <div class="form-container">
             <input type="text" placeholder="The name of the sector" value="<%=sector.Code%>"   name="Code_Acronyme" required>
@@ -20,7 +20,7 @@
         </div>
         <button type="submit" class="button">Edit</button>&nbsp;&nbsp;&nbsp;
         <div class="return">
-            <a href="/">Cancel</a>
+            <a href="/sectorManage">Cancel</a>
         </div>
     </form>
 </div>

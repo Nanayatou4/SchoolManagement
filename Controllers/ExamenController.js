@@ -1,10 +1,12 @@
 db = require('../Models/sequelize');
 module.exports= examenController= {
+ //recuperation des sectors pour qui puisse choisir la matiere
+    add_exam_page: (req, res)=> {
 
-    add_exam_page: function (req, res) {
-        //recuperation des sectors pour qui puisse choisir la matiere
-        db.Matiere.findAll(subjects=>{
+        db.Matiere.findAll().then(subjects=>{
+
             res.render("./views_exam/add_exam_page.ejs",{subjects});
+
         }).catch(()=>{
             res.send('error');
         });
@@ -36,7 +38,7 @@ module.exports= examenController= {
         db.Examen.findAll().then(exams =>{
             res.render("./views_exam/exam_page.ejs", {exams});
         });
-    },
+    }
 
 
 };

@@ -10,7 +10,7 @@
 </head>
 <body>
 <div class="container" >
-    <form action="/editTeacher/<% teacher.id %> method=PUT" method="post">
+    <form action="/editTeacher/<% teacher.id %>?_method=PUT" method="post">
         <h1>Edit Teachers info Page</h1>
         <div class="form-container">
             <input type="text" placeholder="Firsname" class="nom" value="<%=teacher.nom%>" required>
@@ -22,7 +22,7 @@
             <input type="email" placeholder="email" name="email" value="<%=teacher.email%>" required>
         </div>
         <div class="form-container">
-            <select name="status" id="" required >
+            <select name="matiere" id="" required >
                 <% matieres.forEach(function(matiere) { %>
                     <option value="<%= matiere.id %>"><%= matiere.nom %></option>
                 <% }); %>
@@ -30,7 +30,7 @@
         </div>
         <button type="submit" class="button">Edit</button>&nbsp;&nbsp;&nbsp;
         <div class="return">
-            <a href="/" >Cancel</a>
+            <a href="/teacherManage" >Cancel</a>
         </div>
     </form>
 </div>

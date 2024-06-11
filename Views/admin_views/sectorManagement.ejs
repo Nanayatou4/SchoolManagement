@@ -13,8 +13,10 @@
 <body>
 <main class="form-container">
     <div class="text-center mt-5">
-        <a href="/add-exam-page" style="margin-bottom: 4px;">Add sector</a>
+        <a href="/add_sector_page" style="margin-bottom: 4px;">Add sector</a>
+        <a href="/adminPage" style="margin-bottom: 4px;">Return</a>
     </div>
+
     <table border style="width: 100%;" style="color: white;">
         <tr>
             <th>Name</th>
@@ -28,10 +30,9 @@
                 <td><%= sector.generic_name %></td>
 
                 <td class="flex">
-                    <a href="/edite/<%=sector.id%>">Modify</a>&nbsp;&nbsp;
-                    <form method="post" action="/delete_student" onsubmit="return confirm('Are you sure to delete this student');" >
-                        <input type="hidden" name="action" value="DELETE">
-                        <input type="hidden" name="id" value="<%=sector.id%>">
+                    <a href="/edit_sector_page/<%=sector.Code%>">Modify</a>&nbsp;&nbsp;
+                    <form method="post" action="/deleteSector?_method=DELETE" onsubmit="return confirm('Are you sure to delete this sector');" >
+                        <input type="hidden" name="Code" value="<%=sector.Code%>">
                         <input class="submit" type="submit" value="Delete">
                     </form>
                 </td>

@@ -12,6 +12,9 @@
 </head>
 <body>
 <main class="form-container">
+<div class="return">
+            <a href="/adminPage">Cancel</a>
+        </div>
     <table border style="width: 100%;">
         <tr>
             <th>Lastname</th>
@@ -30,7 +33,7 @@
                 <td class="flex">
                     <a href="<%=student.id%>">Modify</a>&nbsp;&nbsp;
                     <form method="post" action="/delete_student" onsubmit="return confirm('Are you sure to delete this student');" >
-                        <input type="hidden" name="action" value="DELETE">
+
                         <input type="hidden" name="id" value="<%=student.id%>">
                         <input class="submit" type="submit" value="Delete">
                     </form>

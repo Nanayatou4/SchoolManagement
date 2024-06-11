@@ -2,42 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sectors Management</title>
+    <title>Title</title>
+    <link rel="stylesheet" href="../../publics/css/bootstrap-utilities.css">
+    <link rel="stylesheet" href="../../publics/css/bootstrap-reboot.css">
+    <link rel="stylesheet" href="../../publics/css/bootstrap.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
     <link rel="stylesheet" href="../../publics/css/style.css">
     <link rel="stylesheet" href="../../publics/css/style2.css">
-    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
-    <link rel="stylesheet" href="../../publics/css/bootstrap.css">
-    <link rel="stylesheet" href="../../publics/css/styleBody.css">
 </head>
 <body>
-<main class="form-container">
-    <div class="text-center mt-5">
-        <a href="/add-exam-page" style="margin-bottom: 4px;">Add sector</a>
+<header class="">
+    <h1 class="mb-5">Welcome to Teacher page</h1>
+</header>
+<main>
+    <div class="container option ">
+        <a class="btn btn-primary" data-bs-toggle="offcanvas" href="/" role="button" aria-controls="offcanvasExample">
+            OutLine
+        </a>
+        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+            See options
+        </button>
     </div>
-    <table border style="width: 100%;" style="color: white;">
-        <tr>
-            <th>Name</th>
-            <th>Generic name</th>
-            <th>Actions</th>
-        </tr>
 
-        <% sectors.forEach(function(sector){ %>
-        <tr>
-            <td><%= sector.Code %></td>
-            <td><%= sector.generic_name %></td>
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <h4 class="offcanvas-title" id="offcanvasExampleLabel">Teacher menu</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="text-center mt-2">
+            <h5><strong>This is options for the Teacher</strong></h5>
+        </div>
+        <div class="offcanvas-body">
 
-            <td class="flex">
-                <a href="<%=sector.id%>">Modify</a>&nbsp;&nbsp;
-                <form method="post" action="/delete_student" onsubmit="return confirm('Are you sure to delete this student');" >
-                    <input type="hidden" name="action" value="DELETE">
-                    <input type="hidden" name="id" value="<%=student.id%>">
-                    <input class="submit" type="submit" value="Delete">
-                </form>
-            </td>
-        </tr>
-        <% }); %>
-    </table>
+            <div class="dropdown mt-3">
+                <ul>
+                    <li><a class="dropdown-item" href="/exam">Exam management</a></li>
+                    <li><a class="dropdown-item" href="/note-page">View Note</a></li>
+                    <li><a class="dropdown-item" href="/students-notes">View Student</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </main>
+<script src="../../publics/css/bootstrap.js"></script>
 </body>
 </html>

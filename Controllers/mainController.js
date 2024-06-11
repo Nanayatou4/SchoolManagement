@@ -82,6 +82,45 @@ const mainController = {
         }
 
     },
+    create_student: (req, res) => {
+        const filiere = req.body.Code;
+
+        const infolog = req.session.infoLogin;
+        const infouser = req.session.infoUser;
+    console.log(filiere);
+        const dataUser={
+            status:infouser.status,
+            nom: infouser.nom,
+            prenom:infouser.prenom,
+            email:infouser.email,
+            FiliereId:filiere
+        }
+        console.log(dataUser);
+
+        db.Etudiant.create(dataUser).then(() => {
+
+console.log('--------------------------------');
+            db.Etudiant.findOne({where: {email: dataUser.email}}).then(student => {
+
+                const dataAccount={
+                    login:infolog.login,
+                    motdepasse: infolog.motdepasse,
+                    EtudiantId:student.id
+                }
+            console.log(dataAccount);
+                db.Compte.create(dataAccount).then(() => {
+                        res.redirect('/');
+                }).catch(error => {
+                    res.render('./login_views/register.ejs',{message:'This account exist already !!'});
+                });
+            }).catch(error => {
+                           res.render('./login_views/register.ejs',{message:'error is produced !!'});
+                       });
+        }).catch(error => {
+            res.render('./login_views/register.ejs',{message:'error is produced !!'});
+        });
+
+    },
     login: (req, res) => {
         res.render('./login_views/login.ejs',{message: "Login"});
     },
@@ -125,7 +164,10 @@ const mainController = {
         })
 
     },
+
     pwd: (req, res) => {
+
+
         res.render('./login_views/forgotPassword.ejs',{message: 'New password '});
     },
     pageProf: (req, res) => {
@@ -139,45 +181,8 @@ const mainController = {
     },
     learn_sector: (req, res) => {
         res.render('./student_views/learn_sector.ejs');
-    },
-    create_student: (req, res) => {
-        const filiere = req.body.sector;
-        req.session.infoUser.FiliereId = filiere;
-        const infolog = req.session.infoLogin;
-        const infouser = req.session.infoUser;
-
-
-        console.log(infolog);
-        console.log("-------------------------");
-        console.log(infouser);
-
-        res.redirect('/')
-
-
-        db.Etudiant.create(infouser).then(() => {
-
-
-            db.Etudiant.findOne({where: {email: infouser.email}}).then(() => {
-                db.Compte.create(infolog).then(etudiant => {
-                    infolog.EtudiantId = etudiant.email;
-
-                    db.Compte.create(infolog).then(() => {
-
-                        res.redirect('/');
-                    }).catch(error => {
-                        res.send("error");
-                    });
-                    res.redirect('/');
-                }).catch(error => {
-                    res.send("error");
-                });
-
-            })
-        }).catch(error => {
-            res.send("error");
-        });
-
     }
+
 };
 
 module.exports = mainController;

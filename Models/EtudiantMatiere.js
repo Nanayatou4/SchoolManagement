@@ -1,7 +1,6 @@
-module.exports = (sequelize, DataTypes)=>
-{
+module.exports = (sequelize, DataTypes) => {
     const EtudiantMatiere = sequelize.define('EtudiantMatiere', {
-        EtudiantId: {
+            EtudiantId: {
                 type: DataTypes.INTEGER,
                 references: {
                     model: 'Matiere',
@@ -15,11 +14,10 @@ module.exports = (sequelize, DataTypes)=>
                     key: 'id'
                 }
             },
-
-    },
-    {
-        freezeTableName: true,
-        timestamps: false,
-    });
+        },
+        {
+            freezeTableName: true,
+            timestamps: false,
+        });
     return EtudiantMatiere;
 };

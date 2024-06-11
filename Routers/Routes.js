@@ -11,6 +11,7 @@ const Route = express.Router();
 
 Route.get('/',controllers_main.login);
 
+
 //route for compte
 Route.get('/register', controllers_student.register);
 Route.post('/login',controllers_main.connect);
@@ -62,11 +63,11 @@ Route.delete('/deleteSector', controllers_Admin.delete_sector);
 
 Route.get('/edit_sector_page/:id', controllers_Sector.edite_sector_page);
 Route.get('/add_sector_page', controllers_Sector.add_sector_page);
-Route.get('/sector_page', controllers_Sector.sector_page);
+
 
 
 //subject Management
-Route.get('./subjectManage', controllers_Admin.subjectManage_page);
+Route.get('/subjectManage', controllers_Admin.subjectManage_page);
 Route.post('/addSubject', controllers_Admin.add_subject);
 Route.put('/editSubject', controllers_Admin.edit_subject);
 Route.delete('/deleteSubject', controllers_Admin.delete_subject);
@@ -82,4 +83,9 @@ Route.get('/teacherManage', controllers_Admin.teacherManage);
 Route.post('/addTeacher', controllers_Admin.add_teacher);
 Route.put('/editTeacher', controllers_Admin.edit_teacher);
 Route.delete('/deleteTeacher', controllers_Admin.delete_teacher);
+
+Route.get('/add_teacher_page', controllers_Admin.add_teacher_page);
+Route.get('/edit_teacher_page/:id', controllers_Admin.edit_teacher_page);
+
+
 module.exports=Route;

@@ -21,15 +21,17 @@
                 <input type="text" placeholder="email" required> 
               </div>
             <div class="form-container">
-                <select name="teacherId" id="" required >
+                <select name="filiereId" id="" required >
                     <% filieres.forEach(function(filiere) { %>
-                        <option value="<%= filiere.Code %>"><strong>Mr(s) </strong> <%= filiere.Code %></option>
+                        <option value="<%= filiere.Code %>"><%= filiere.Code %></option>
                     <% }); %>
                 </select>
             </div>
 
               <button type="submit" class="button">Modify</button>&nbsp;&nbsp;&nbsp;
-              <button type="submit" class="button">Cancel</button>
+              <div class="return">
+                          <a href="/students-">Cancel</a>
+                      </div>
 
             </form>
     </div>

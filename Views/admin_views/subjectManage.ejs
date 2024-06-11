@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,17 +12,20 @@
 </head>
 <body>
 <main class="form-container">
+<div class="return">
+                    <a href="/adminPage">Return main page</a>
+                </div>
     <table border style="width: 100%;" style="color: white;">
         <tr>
-            <th>ID</th>
+
             <th>Name</th>
-            <th>TeacherId</th>
+            <th>Teacher</th>
             <th>StudentId</th>
         </tr>
 
         <% subjects.forEach(function(subject){ %>
             <tr>
-                <td><%= subject.id %></td>
+
                 <td><%= subject.nom %></td>
                 <td><%= subject.ProfesseurId %></td>
                 <td><%= subject.EtudiantId %></td>

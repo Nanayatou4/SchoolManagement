@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<% if(subjects==null){ %>
+<% if(subjects.nom==null){ %>
     <div class="container">
         <div classe="alerte alerte-danger" rôle="alerte">
             subjects not dispo !!
@@ -44,6 +44,9 @@
             </select>
         </div>
         <button type="submit" class="button">Save</button>
+        <div class="return">
+                    <a href="/exam">Return</a>
+                </div>
     </form>
 </div>
 <% } %>
